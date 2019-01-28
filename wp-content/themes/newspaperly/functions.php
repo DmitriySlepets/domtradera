@@ -717,10 +717,10 @@ function getMainMenu(){
     $html = $html . '<div class="b-navbar-search">';
     $html = $html . '<div class="b-navbar-search-area">';
     $html = $html . '<form name="search" >';
-        $html = $html . '<input id="place_for_searchinput" type="text" name="text" placeholder="Поисковый запрос">';
+        $html = $html . '<input id="place_for_searchinput" type="text" name="s" placeholder="Поисковый запрос">';
         $html = $html . '<input type="submit" value="Найти →">';
-        $html = $html . '<input name="p" value="search" class="hidden">';
-    $html = $html . '<input name="how" value="pt" class="hidden">';
+        /*$html = $html . '<input name="p" value="search" class="hidden">';
+        $html = $html . '<input name="how" value="pt" class="hidden">';*/
     $html = $html . '</form>';
     $html = $html . '</div>';
     $html = $html . '<div class="b-navbar-search-btn"></div>';
