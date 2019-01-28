@@ -2977,7 +2977,7 @@ article .entry-content{font-family: Merriweather !important;}
 * активный поиск
 */
 .b-navbar-search.active .b-navbar-search-area {  padding: 0 20px 0 30px;  }
-.b-navbar-search-area {  position: absolute;  display: block;  top: 0;  right: 36px;  bottom: 0;  width: 0px;  height: 36px;  background: #fff;  padding: 0;  overflow: hidden;  -webkit-transition: all .1s ease;  -moz-transition: all .1s ease;  -o-transition: all .1s ease;  transition: all 0.1s ease;  }
+.b-navbar-search-area {  position: absolute;  display: block;  top: 0;  right: 36px;  bottom: 0;  width: 0px;  height: 35px;  background: #fff;  padding: 0;  overflow: hidden;  -webkit-transition: all .1s ease;  -moz-transition: all .1s ease;  -o-transition: all .1s ease;  transition: all 0.1s ease;  }
 .b-navbar-search.active .b-navbar-search-btn {  background: #b11116;  }
 .b-navbar-search-btn {  display: block;  position: relative;  width: 36px;  height: 36px;  cursor: pointer;  background: #a7a2a3;  -webkit-transition: all .3s ease;  -moz-transition: all .3s ease;  -o-transition: all .3s ease;  transition: all 0.3s ease;  }
 .b-navbar-search.active .b-navbar-search-btn{  background: url(/wp-content/themes/newspaperly/icons/mobile-menu/close_bluegrey.svg) no-repeat 50% 50%;  }

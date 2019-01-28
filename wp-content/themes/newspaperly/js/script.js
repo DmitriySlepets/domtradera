@@ -178,13 +178,13 @@ jQuery(document).scroll(function () {
         $('.navbar').attr("id","sticky-header-2");
         /*$('.yandex-cotext').removeAttr("style");
         $('.yandex-cotext').attr("style","display:none;");*/
-        $('#content').attr("style","margin-top:140px");
+        //$('#content').attr("style","margin-top:140px");
 	}else{
 		$('.header-bg').removeAttr("id");
         $('.navbar').removeAttr("id");
         /*$('.yandex-cotext').removeAttr("style");
         $('.yandex-cotext').attr("style","height:auto;max-height:300px;margin: 0 auto;");*/
-        $('#content').removeAttr("style");
+        //$('#content').removeAttr("style");
 	}
 });
 
