@@ -716,7 +716,7 @@ function getMainMenu(){
             /*$html = $html . '<div><a href="https://www.hycm.com/ru/hylp/global/start-trading?campaignid=701D0000001iEFH&utm_source=affiliate&utm_medium=affiliate&utm_campaign=ETRASS_EN_Global_LP&a_aid=&clickid=EG7007359&eaid=72204">Начать торговать</a></div>';*/
     $html = $html . '<div class="b-navbar-search">';
     $html = $html . '<div class="b-navbar-search-area">';
-    $html = $html . '<form name="search" >';
+    $html = $html . '<form name="search" action="/">';
         $html = $html . '<input id="place_for_searchinput" type="text" name="s" placeholder="Поисковый запрос">';
         $html = $html . '<input type="submit" value="Найти →">';
         /*$html = $html . '<input name="p" value="search" class="hidden">';

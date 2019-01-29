@@ -199,6 +199,9 @@ jQuery(".b-navbar-search-btn").click(function(){
 		var widthMenu = jQuery(".navbar .navbar-main").width() - 30;
         jQuery(".b-navbar-search-area").attr("style","width:"+ widthMenu+"px;")
         jQuery(".b-navbar-search").addClass("active");
+        setTimeout(function(){
+            jQuery( "#place_for_searchinput" ).focus();
+        },1000);
 	}
 
 });
