@@ -1046,3 +1046,4 @@ function getSocialHtml(){
                </div>';
 	return $html;
 }
+echo 'tes';
