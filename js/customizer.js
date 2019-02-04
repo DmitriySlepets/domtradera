@@ -419,9 +419,9 @@
 } )( jQuery );
  //
 wp.ajax
-(function($) {var auto_refresh = setInterval(
-    $(function() {
+(
+    $(function() {var auto_refresh = setInterval(
         $("#archives").load("http://domtradera.ru/wp-content/themes/newspaperly/ajax/GetNewsMain.php");
 
     },180000))
-})(jQuery)
+)(jQuery)
