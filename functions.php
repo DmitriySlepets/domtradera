@@ -18,6 +18,7 @@ $countMet = 0;
 /**
  * Получаем ключевые слова, в зависимости от id статьи
  */
+//
 function getKeywords(){
     $post_id = get_the_ID();
     if( is_front_page() ){
