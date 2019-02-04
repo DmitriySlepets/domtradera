@@ -1052,19 +1052,3 @@ function get_url(){
     return get_permalink($post);
 
 }
-
-function groups()
-{
-    $.ajax({
-                url: "/wp-content/themes/newspaperly/index.php";
-                cache: false;
-                success: function(html){
-    $("#groups").html(html);
-}
-            })
-        }
-
-$(document).ready(function(){
-    groups();
-    setInterval('groups()',180000);
-});
