@@ -1,0 +1,28 @@
+
+/**
+* сформируем стили под новое меню
+*/
+#navbar #search.active #search_btn,#navbar #search.complete #search_btn {background-image: url(../icons/mobile-menu/search_bluegrey.svg);}
+#navbar #search.active,#navbar #search.complete {margin-left: 0;padding-left: 20px;padding-right: 20px;-moz-transform: translate3d(-100%, 0, 0);-webkit-transform: translate3d(-100%, 0, 0);-o-transform: translate3d(-100%, 0, 0);-ms-transform: translate3d(-100%, 0, 0);transform: translate3d(-100%, 0, 0);left: 100%;width: 100%;}
+
+#navbar {height: 40px;padding-top: 5px;overflow: hidden;text-align: center;border-bottom: 1px solid #d2d7da;}
+#navbar #menu_main_btn {position: absolute;width: 59px;height: 40px;left: 0;top: 0;background: url(../icons/mobile-menu/menu2.svg);background-repeat: no-repeat;background-position: center center;background-size: 19px auto;}
+#navbar #toplink {display: block;width: 160px;height: 26px;margin: 0 auto;background-size: auto 26px;background-image: url(http://domtradera.ru/wp-content/uploads/2018/09/cropped-logo_main.png);background-repeat: no-repeat;text-decoration: none;font-weight: bold;padding-left: 26px;}
+#navbar #search {position: absolute;top: 0;right: 0;margin-left: -40px;padding-top: 0px;height: 40px;background: #fff;overflow: hidden;border-bottom: 1px solid #d2d7da;-webkit-transition: all 300ms ease-in-out;-moz-transition: all 300ms ease-in-out;-ms-transition: all 300ms ease-in-out;-o-transition: all 300ms ease-in-out;transition: all 300ms ease-in-out;-moz-transform: translate3d(0, 0, 0);-webkit-transform: translate3d(0, 0, 0);-o-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
+#navbar #search #search_btn {float: left;width: 39px;height: 39px;background: url(../icons/mobile-menu/search.svg);background-repeat: no-repeat;background-position: center center;background-size: 19px auto;}
+#navbar #search #s_inp_holder {display: block;position: absolute;left: 70px;right: 70px;top: 0;height: 100%;}
+#navbar #search input {display: inline-block;height: 20px;line-height: 20px !important;margin: 10px 0 0;padding: 0;border: none;outline: none;width: 100%;text-align: left;}
+#navbar #search #search_close,#navbar #popup_close {width: 22px;height: 19px;background-repeat: no-repeat;background-position: center center;background-size: 12px auto;background-image: url(../icons/mobile-menu/close_bluegrey.svg);}
+#navbar #search #search_close {position: absolute;top: 0;bottom: 0;right: 20px;margin: auto;display:none;}
+
+/*#navbar #curtain{left: -100%;opacity: 0;position: fixed;width: 100%;top: 40px;bottom: 0;height: 100%;background: #000;background: rgba(0,0,0,0.7);}
+*/
+#navbar #menu_main {z-index: 5;top: 40px;bottom: 0;left: -200px;width: 200px;height: 100%;background: #fff;position: fixed;text-align: left;-webkit-box-shadow: 0 0 8px 0 rgba(0,0,0,0.05);box-shadow: 0 0 8px 0 rgba(0,0,0,0.05);-webkit-transition: all 300ms ease-in-out;-moz-transition: all 300ms ease-in-out;-ms-transition: all 300ms ease-in-out;-o-transition: all 300ms ease-in-out;transition: all 300ms ease-in-out;-moz-transform: translate3d(0, 0, 0);-webkit-transform: translate3d(0, 0, 0);-o-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);-webkit-transform-style: flat;-moz-transform-style: flat;transform-style: flat;}
+#navbar #menu_main .viewport {height: 100%;padding-bottom: 40px;overflow: scroll;-webkit-overflow-scrolling: touch;position: relative;}
+#navbar #menu_main .overview {width: 100%;}
+#navbar #menu_main ul{padding:0px; margin:0px;}
+#navbar #menu_main li.lineafter {border-bottom: 1px solid #d2d7da;padding-bottom: 5px;}
+#navbar #menu_main li:first-child {padding-top: 5px;}
+#navbar #menu_main li {display: block;-moz-box-sizing: content-box;box-sizing: content-box;margin: 0px;height: 30px;}
+#navbar #menu_main li.active a {color: #b11116;}
+#navbar #menu_main li a {font: bold 11px/30px Arial, sans-serif;color: #333;text-transform: uppercase;padding-left: 10px;text-decoration: none;}
