@@ -418,10 +418,17 @@
 	} );
 } )( jQuery );
  //
-wp.ajax
-(
-    $(function() {var auto_refresh = setInterval(
-        $("#archives").load("http://domtradera.ru/wp-content/themes/newspaperly/ajax/GetNewsMain.php");
 
-    },180000))
-)(jQuery)
+wp.ajax({
+	url: "http://domtradera.ru/wp-content/themes/newspaperly/ajax/GetNewsMain.php",
+	cache: false,
+	success: function(html){
+		$("#content").html(html);
+	}
+})
+};
+
+$(document).ready(function(){
+	show();
+	setInterval('show()',180000)
+(jQuery)
