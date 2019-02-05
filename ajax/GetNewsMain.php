@@ -1,58 +1,91 @@
-
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package newspaperly
- */
-
-get_header(); ?>
-
-    <div id="primary" class="featured-content content-area">
-        <main id="main" class="site-main">
-            <?php
-            if ( have_posts() ) :
-
-                if ( is_home() && ! is_front_page() ) : ?>
-
-                    <header>
-                        <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-                    </header>
-
+<article id="post-<?php the_ID(); ?>" <?php post_class('posts-entry fbox blogposts-list'); ?>>
+    <?php if ( has_post_thumbnail() ) : ?>
+    <div class="post-list-has-thumbnail">
+        <div class="featured-thumbnail">
+            <a href="<?php the_permalink() ?>" rel="bookmark">
+                <div class="thumbnail-img" style="background-image:url(<?php the_post_thumbnail_url( 'newspaperly-slider' ); ?>)"></div>
+            </a>
+        </div>
+        <?php endif; ?>
+        <div class="blogposts-list-content">
+            <?php echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><img class="anons-list" src="' . get_post_first_image_src() . '" width="80" height="80" /></a>'; ?>
+            <header class="entry-header">
                 <?php
+                if ( is_singular() ) :
+                    the_title( '<h1 class="entry-title">', '</h1>' );
+                else :
+                    the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
                 endif;
 
-                /* Start the Loop */
-                while ( have_posts() ) : the_post();
+                if ( 'post' === get_post_type() ) : ?>
+                    <div class="entry-meta">
+                        <div class="blog-data-wrapper">
+                            <div class="post-data-divider"></div>
+                            <div class="post-data-positioning">
+                                <div class="post-data-text">
+                                    <?php newspaperly_posted_on(); ?><span class="kk_tags"><?php the_tags_f(); ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .entry-meta -->
+                <?php
+                endif; ?>
+            </header><!-- .entry-header -->
+            <div class="entry-content">
+                <?php
+                the_excerpt( sprintf(
+                    wp_kses(
+                    /* translators: %s: Name of current post. Only visible to screen readers */
+                        __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'newspaperly' ),
+                        array(
+                            'span' => array(
+                                'class' => array(),
+                            ),
+                        )
+                    ),
+                    get_the_title()
+                ) );
 
-                    /*
-                     * Include the Post-Format-specific template for the content.
-                     * If you want to override this in a child theme, then include a file
-                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                     */
-                    get_template_part( 'template-parts/content', get_post_format() );
 
-                endwhile;
-                echo '<div class="text-center paging-navs">';
-                the_posts_pagination();
-                echo '</div>';
-            else :
+                wp_link_pages( array(
+                    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'newspaperly' ),
+                    'after'  => '</div>',
+                ) );
+                ?>
 
-                get_template_part( 'template-parts/content', 'none' );
-
-            endif; ?>
-
-        </main><!-- #main -->
-    </div><!-- #primary -->
-
+            </div><!-- .entry-content -->
+            <?php if ( has_post_thumbnail() ) : ?>
+        </div>
+    <?php endif; ?>
+    </div>
+</article><!-- #post-<?php the_ID(); ?> -->
 <?php
-	get_sidebar();
-	get_footer();
+global $kkPositonMar;
+if($kkPositonMar==8 || $kkPositonMar==13):
+    ?>
+    <div style="height:auto;max-height:300px;margin: 0 auto;display: inline-block;float: left;width: 100%;">
+        <!-- Yandex.RTB R-A-291518-<?php echo $kkPositonMar; ?> -->
+        <div id="yandex_rtb_R-A-291518-<?php echo $kkPositonMar; ?>"></div>
+        <script type="text/javascript">
+            (function(w, d, n, s, t) {
+                w[n] = w[n] || [];
+                w[n].push(function() {
+                    Ya.Context.AdvManager.render({
+                        blockId: "R-A-291518-<?php echo $kkPositonMar; ?>",
+                        renderTo: "yandex_rtb_R-A-291518-<?php echo $kkPositonMar; ?>",
+                        async: true
+                    });
+                });
+                t = d.getElementsByTagName("script")[0];
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.src = "//an.yandex.ru/system/context.js";
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+            })(this, this.document, "yandexContextAsyncCallbacks");
+        </script>
+    </div>
+<?php
+endif;
+$kkPositonMar = $kkPositonMar + 1;
 ?>
