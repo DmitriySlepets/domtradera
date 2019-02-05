@@ -234,8 +234,8 @@ $(document).ready(function(){
 function show()
 {
 	jQuery($.ajax({
-		url: "/wp-content/themes/newspaperly/ajax/GetNewsMain.php",
-		cache: true,
+		url: "/ajax/GetNewsMain.php",
+		cache: false,
 		success: function(html){
 			$("#content").html(html);
 		}
