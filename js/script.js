@@ -228,15 +228,19 @@ jQuery(".b-navbar-search-area input[type=\"submit\"]").click(function(){
 });
 
 
-jQuery.ajax({
-	url: "/wp-content/themes/newspaperly/ajax/GetNewsMain.php",
-	cache: false,
-	success: function(html){
-		$("#content").html(html);
-	}
-});
 
-jQuery($(document).ready(function() {
-	jQuery(show());
-	jQuery(setInterval('show()', 60000));
-})
+function show()
+{
+	$.ajax({
+		url: "/wp-content/themes/newspaperly/ajax/GetNewsMain.php",
+		cache: false,
+		success: function(html){
+			$("#content").html(html);
+		}
+	});
+}
+
+$(document).ready(function(){
+	show();
+	setInterval('show()',60000);
+});
