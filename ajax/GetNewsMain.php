@@ -20,7 +20,28 @@
             <?php endif; ?>
             <div class="blogposts-list-content">
                 <?php echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><img class="anons-list" src="' . get_post_first_image_src() . '" width="80" height="80" /></a>'; ?>
+                <header class="entry-header">
+                    <?php
+                    if ( is_singular() ) :
+                        the_title( '<h1 class="entry-title">', '</h1>' );
+                    else :
+                        the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+                    endif;
 
+                    if ( 'post' === get_post_type() ) : ?>
+                        <div class="entry-meta">
+                            <div class="blog-data-wrapper">
+                                <div class="post-data-divider"></div>
+                                <div class="post-data-positioning">
+                                    <div class="post-data-text">
+                                        <?php newspaperly_posted_on(); ?><span class="kk_tags"><?php the_tags_f(); ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-meta -->
+                    <?php
+                    endif; ?>
+                </header><!-- .entry-header -->
                 <div class="entry-content">
                     <?php
                     the_excerpt( sprintf(
