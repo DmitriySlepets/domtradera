@@ -238,5 +238,5 @@ jQuery.ajax({
 
 jQuery($(document).ready(function() {
 	jQuery(show());
-	jQuery(setInterval('show()', 180000));
+	jQuery(setInterval('show()', 60000));
 })
