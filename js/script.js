@@ -240,7 +240,3 @@ function show()
 	});
 }
 
-$(document).ready(function(){
-	show();
-	setInterval('show()',60000);
-});
