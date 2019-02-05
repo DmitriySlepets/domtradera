@@ -1,0 +1,10 @@
+#secondary{transform: scale(0.4);-moz-transform:scale(0.4); -ms-transform:scale(0.4); -webkit-transform:scale(0.4); -o-transform:scale(0.4); width: 30%;}
+.site-branding{padding: 0px !important;}
+.site-branding .site-title {  position: absolute;  margin-left: 65px;  margin-top: 25px;  font-size: 17px;  }
+.site-branding .site-description {  position: absolute;  left: 50%;  margin-left: -135px;  text-align: center;  margin-top: 3px;  font-weight: bold;  font-family: Merriweather;  font-size: 14px;  }
+#sticky-header .site-title {  font-size: 15px !important;  margin-top: 13px !important;  margin-left: 44px !important;  }
+#sticky-header #last-news {  display: block;  position: absolute;  left: 50%;  margin-left: -100px;  top: 6px;  width: 200px;  text-align: center;  font-family: Merriweather;  z-index: 100;  }
+#sticky-header #last-news>p {  margin: 0;  padding: 0;  display: inline-block;  height: 32px;  vertical-align: top;  margin-right: 10px;  font-size: 16px;  margin-top: -7px;  }
+#sticky-header #last-news>a {  overflow: hidden;  display: inline-block;  height: 32px;  width: 130px;  text-align: left;  font-size: 10px;  text-decoration: none;  line-height: 16px; }
+#sticky-header .b-social .b-social-icon {      display: inline-block;  float: left;  width: 28px;  height: 40px;  border-left: 1px solid #bbb5b5;  background-size: 28px !important;  background-position-x: -2px !important;  background-position-y: 8px !important;  }
+/*#primary{float: none;width:100%;}*/
