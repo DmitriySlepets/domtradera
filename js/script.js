@@ -195,19 +195,21 @@ jQuery(document).ready(function () {
 		jQuery(window).scroll(function () {
 			if ($(window).scrollTop() + $(window).height() > $this.height() && !block) {
 				     block = true;
-					post++;
+				$(".load").fadeIn(500, function () {
 					jQuery.ajax({
 						url: "/wp-content/themes/newspaperly/ajax/get_lenta.php",
 						type: "post",
 						cache: false,
 						success: function (html) {
-							if(html != "null") {
-								//alert(1);
-								$("#main").html(html);
-								block = false;
+							if(html) {
+								$(html).appendTo($("#posts")).hide().fadeIn(1000);
+								$(".pager").text(page);
 							}
+								$(".load").fadeOut(500);
+								block = false;
 						}
 					});
+				});
 			}
 		});
 	}
