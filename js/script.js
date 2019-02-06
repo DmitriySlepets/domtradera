@@ -193,17 +193,17 @@ jQuery(document).ready(function () {
 	if($settings.scroll == true) {
 		var block = false;
 		jQuery(window).scroll(function () {
-			if ($(window).height() + $(window).scrollTop() >= $(document).height() && !block) {
+			if ($(window).scrollTop() + $(window).height() > $this.height() && !block) {
 				block = true;
 				$(".load").fadeIn(500, function () {
 					post++;
 					jQuery.ajax({
 						url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
-						type: "GET",
+						type: "post",
 						data: "post=" + post + "&move=1",
 						success: function (html) {
 							if (html) {
-								$(html).appendTo($("#posts")).hide().fadeIn(1000);
+								$(html).appendTo($("#post")).hide().fadeIn(1000);
 								$(".pager").text(post);
 							}
 							$(".load").fadeOut(500);
