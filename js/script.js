@@ -190,29 +190,30 @@ jQuery(document).scroll(function () {
 });
 
 jQuery(document).ready(function () {
-	var block = false;
-	jQuery(window).scroll(function () {
-
-		if($(window).height() + $(window).scrollTop() >= $(document).height() && !block) {
-			block = true;
-			$(".load").fadeIn(500, function () {
-				post++;
-				$.ajax({
-					url:"/wp-content/themes/newspaperly/ajax/get_news_main.php",
-					type:"GET",
-					data:"post="+post+"&move=1",
-					success:function(html) {
-						if(html) {
-							$(html).appendTo($("#posts")).hide().fadeIn(1000);
-							$(".pager").text(post);
+	if($settings.scroll == true) {
+		var block = false;
+		jQuery(window).scroll(function () {
+			if ($(window).height() + $(window).scrollTop() >= $(document).height() && !block) {
+				block = true;
+				$(".load").fadeIn(500, function () {
+					post++;
+					jQuery.ajax({
+						url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
+						type: "GET",
+						data: "post=" + post + "&move=1",
+						success: function (html) {
+							if (html) {
+								$(html).appendTo($("#posts")).hide().fadeIn(1000);
+								$(".pager").text(post);
+							}
+							$(".load").fadeOut(500);
+							block = false;
 						}
-						$(".load").fadeOut(500);
-						block = false;
-					}
+					});
 				});
-			});
-		}
-	});
+			}
+		});
+	}
 });
 /**
  * строка поиска десктопная версия
