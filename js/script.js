@@ -199,12 +199,11 @@ jQuery(document).ready(function () {
 					jQuery.ajax({
 						url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
 						type: "post",
-						data: "post=" + post + "&move=1",
+						cache: false,
 						success: function (html) {
 							if (html) {
 								$(html).appendTo($("#post")).hide().fadeIn(1000);
 							}
-
 							block = false;
 						}
 					});
