@@ -17,7 +17,31 @@
 	if($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'],'page')==false){
 	    echo '<h1 class="entry-title" style="padding-top: 10px;background-color: #fff;margin-bottom: 0px;">Читайте также:</h1>';
 		echo do_shortcode("[post_grid id='894']"); 
-	}
+	}elseif($_SERVER['REQUEST_URI'] == '/'){
+?>
+	    <script>
+            /**
+             * ajax обновление главной страницы
+             */
+            jQuery(document).ready(function(){
+                setInterval('show()',30000);
+            });
+            function show() {
+                jQuery.ajax({
+                    url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
+                    cache: false,
+                    type: "post",
+                    success: function(html){
+                        if(html != "null"){
+                            alert(1);
+                            $("#main").html(html);
+                        }
+                    }
+                });
+            }
+        </script>
+<?php
+    }
 
 ?>
 

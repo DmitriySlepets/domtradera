@@ -209,3 +209,4 @@ jQuery(".b-navbar-search-area input[type=\"submit\"]").click(function(){
 	jQuery("#search").addClass("active");
 
 });
+
