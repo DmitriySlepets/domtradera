@@ -189,31 +189,60 @@ jQuery(document).scroll(function () {
 	}
 });
 
-jQuery(document).ready(function () {
-	if($settings.scroll == true) {
-		var block = false;
-		jQuery(window).scroll(function () {
-			if ($(window).scrollTop() + $(window).height() > $this.height() && !block) {
-				     block = true;
-				$(".load").fadeIn(500, function () {
-					jQuery.ajax({
-						url: "/wp-content/themes/newspaperly/ajax/get_lenta.php",
-						type: "post",
-						cache: false,
-						success: function (html) {
-							if(html) {
-								$(html).appendTo($("#posts")).hide().fadeIn(1000);
-								$(".pager").text(page);
-							}
-								$(".load").fadeOut(500);
-								block = false;
-						}
+
+
+
+
+
+jQuery(document).ready(function(){
+
+	/* Переменная-флаг для отслеживания того, происходит ли в данный момент ajax-запрос. В самом начале даем ей значение false, т.е. запрос не в процессе выполнения */
+	var inProgress = false;
+	/* С какой статьи надо делать выборку из базы при ajax-запросе */
+	var startFrom = 10;
+
+	$(window).scroll(function() {
+
+		/* Если высота окна + высота прокрутки больше или равны высоте всего документа и ajax-запрос в настоящий момент не выполняется, то запускаем ajax-запрос */
+		if($(window).scrollTop() + $(window).height() >= $(document).height() - 200 && !inProgress) {
+
+			jQuery.ajax({
+				/* адрес файла-обработчика запроса */
+				url: '/wp-content/themes/newspaperly/ajax/get_lenta.php',
+				/* метод отправки данных */
+				method: 'POST',
+				/* данные, которые мы передаем в файл-обработчик */
+				data: {"startFrom" : startFrom},
+				/* что нужно сделать до отправки запрса */
+				beforeSend: function() {
+					/* меняем значение флага на true, т.е. запрос сейчас в процессе выполнения */
+					inProgress = true;}
+				/* что нужно сделать по факту выполнения запроса */
+			}).done(function(data){
+
+				/* Преобразуем результат, пришедший от обработчика - преобразуем json-строку обратно в массив */
+				data = jQuery.parseJSON(data);
+
+				/* Если массив не пуст (т.е. статьи там есть) */
+				if (data.length > 0) {
+
+					/* Делаем проход по каждому результату, оказвашемуся в массиве,
+                    где в index попадает индекс текущего элемента массива, а в data - сама статья */
+					$.each(data, function(index, data){
+
+						/* Отбираем по идентификатору блок со статьями и дозаполняем его новыми данными */
+						$("#articles").append("<p><b>" + data.title + "</b><br />" + data.text + "</p>");
 					});
-				});
-			}
-		});
-	}
+
+					/* По факту окончания запроса снова меняем значение флага на false */
+					inProgress = false;
+					// Увеличиваем на 10 порядковый номер статьи, с которой надо начинать выборку из базы
+					startFrom += 10;
+				}});
+		}
+	});
 });
+
 /**
  * строка поиска десктопная версия
  */
