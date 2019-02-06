@@ -33,7 +33,7 @@
                     type: "post",
                     success: function(html){
                         if(html != "null"){
-                            alert(1);
+                            //alert(1);
                             $("#main").html(html);
                         }
                     }
