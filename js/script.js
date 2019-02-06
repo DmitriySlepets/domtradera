@@ -194,8 +194,7 @@ jQuery(document).ready(function () {
 		var block = false;
 		jQuery(window).scroll(function () {
 			if ($(window).scrollTop() + $(window).height() > $this.height() && !block) {
-				block = true;
-				$(".load").fadeIn(500, function () {
+				     block = true;
 					post++;
 					jQuery.ajax({
 						url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
@@ -204,13 +203,11 @@ jQuery(document).ready(function () {
 						success: function (html) {
 							if (html) {
 								$(html).appendTo($("#post")).hide().fadeIn(1000);
-								$(".pager").text(post);
 							}
-							$(".load").fadeOut(500);
+
 							block = false;
 						}
 					});
-				});
 			}
 		});
 	}
