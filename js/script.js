@@ -228,17 +228,5 @@ jQuery(".b-navbar-search-area input[type=\"submit\"]").click(function(){
 });
 
 
-$(document).ready(function(){
-	setInterval('show()',60000);
-});
-function show()
-{
-	jQuery($.ajax({
-		url: "/ajax/GetNewsMain.php",
-		cache: false,
-		success: function(html){
-			$("#content").html(html);
-		}
-	}));
-}
+
 
