@@ -189,22 +189,22 @@ jQuery(document).scroll(function () {
 	}
 });
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
 	var block = false;
-	$(window).scroll(function () {
+	jQuery(window).scroll(function () {
 
 		if($(window).height() + $(window).scrollTop() >= $(document).height() && !block) {
 			block = true;
 			$(".load").fadeIn(500, function () {
-				page++;
+				post++;
 				$.ajax({
 					url:"/wp-content/themes/newspaperly/ajax/get_news_main.php",
 					type:"GET",
-					data:"page="+page+"&move=1",
+					data:"post="+post+"&move=1",
 					success:function(html) {
 						if(html) {
 							$(html).appendTo($("#posts")).hide().fadeIn(1000);
-							$(".pager").text(page);
+							$(".pager").text(post);
 						}
 						$(".load").fadeOut(500);
 						block = false;
