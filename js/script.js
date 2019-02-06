@@ -197,14 +197,15 @@ jQuery(document).ready(function () {
 				     block = true;
 					post++;
 					jQuery.ajax({
-						url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
+						url: "/wp-content/themes/newspaperly/ajax/get_lenta.php",
 						type: "post",
 						cache: false,
 						success: function (html) {
-							if (html) {
-								$(html).appendTo($("#post")).hide().fadeIn(1000);
+							if(html != "null") {
+								//alert(1);
+								$("#main").html(html);
+								block = false;
 							}
-							block = false;
 						}
 					});
 			}
