@@ -77,30 +77,41 @@
 ?>
  <?php
     if(count($results)>0):
-        echo '<main id="main" class="site-main brokers">';
-        $itemResult = $results[rand(1,count($results))];
-        $cover = "contain";
-        $detect = get_mobile_detect(); // Создаём экземпляр класса
-?>
-        <article id="post" class="posts-entry fbox blogposts-list post type-post status-publish format-standard hentry">
-            <div class="blogposts-list-content">
-                <?php if ($detect->isMobile()): ?>
-                    <a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><img class="anons-list" src="<?php echo $itemResult->img;?>" width="80" height="80" style="object-fit: contain;"></a>
+        $itemResult = $results[rand(0,count($results)-1)];
+        if(strlen($itemResult->img)>0) {
+            echo '<main id="main" class="site-main brokers">';
+            $cover = "contain";
+            $detect = get_mobile_detect(); // Создаём экземпляр класса
+            ?>
+            <article id="post"
+                     class="posts-entry fbox blogposts-list post type-post status-publish format-standard hentry">
+                <div class="blogposts-list-content">
+                    <?php if ($detect->isMobile()): ?>
+                    <a href="<?php echo $itemResult->href; ?>" target="_blank" rel="bookmark"><img class="anons-list"
+                                                                                                   src="<?php echo $itemResult->img; ?>"
+                                                                                                   width="80"
+                                                                                                   height="80"
+                                                                                                   style="object-fit: contain;"></a>
                     <header class="entry-header">
-                <?php else: ?>
-                    <a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><img class="anons-list" src="<?php echo $itemResult->img;?>" width="80" height="80" style="object-fit: <?php echo $cover;?>; width: 80px; height: 80px;"></a>
-                    <header class="entry-header">
-                    <h2 class="entry-title"><a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><?php echo $itemResult->title;?></a></h2>
-                <?php endif; ?>
-                </header><!-- .entry-header -->
-                <div class="entry-content">
-                    <a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><?php echo $itemResult->description;?></a>
-                </div><!-- .entry-content -->
-            </div><!--.blogposts-list-content-->
-        </article>
+                        <?php else: ?>
+                        <a href="<?php echo $itemResult->href; ?>" target="_blank" rel="bookmark"><img
+                                    class="anons-list" src="<?php echo $itemResult->img; ?>" width="80" height="80"
+                                    style="object-fit: <?php echo $cover; ?>; width: 80px; height: 80px;"></a>
+                        <header class="entry-header">
+                            <h2 class="entry-title"><a href="<?php echo $itemResult->href; ?>" target="_blank"
+                                                       rel="bookmark"><?php echo $itemResult->title; ?></a></h2>
+                            <?php endif; ?>
+                        </header><!-- .entry-header -->
+                        <div class="entry-content">
+                            <a href="<?php echo $itemResult->href; ?>" target="_blank"
+                               rel="bookmark"><?php echo $itemResult->description; ?></a>
+                        </div><!-- .entry-content -->
+                </div><!--.blogposts-list-content-->
+            </article>
 
-<?php
-        echo '</main>';
+            <?php
+            echo '</main>';
+        }
     endif;
 ?>	
 <div style="height:auto;max-height:300px;margin: 0 auto;display: inline-block;float: left;width: 100%;">

@@ -24,7 +24,7 @@
              * ajax обновление главной страницы
              */
             jQuery(document).ready(function(){
-                setInterval('show()',30000);
+                setInterval('show()',5000);
             });
             function show() {
                 jQuery.ajax({
