@@ -15,7 +15,6 @@ $tmp_post = $post;
 $args = array('posts_per_page' => $post, 'DESC'=>$startFrom);
 $myposts = get_posts($args);
 foreach ($myposts as $post):
-    $posts[] += $post->ID;
     setup_postdata($post);
     get_template_part('template-parts/content', get_post_format());
 endforeach;
