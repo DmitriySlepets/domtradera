@@ -12,7 +12,7 @@ require_once('/var/www/u0526235/data/www/domtradera.ru/wp-load.php');
 global $post;
 $startFrom = $_POST['startFrom'];
 $tmp_post = $post;
-$args = array('posts_per_page' => $post);
+$args = array('posts_per_page' => $post, 'DESC'=>$startFrom);
 $myposts = get_posts($args);
 foreach ($myposts as $post):
     $posts[] += $post->ID;
