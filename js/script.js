@@ -199,7 +199,7 @@ jQuery(document).ready(function(){
 	/* Переменная-флаг для отслеживания того, происходит ли в данный момент ajax-запрос. В самом начале даем ей значение false, т.е. запрос не в процессе выполнения */
 	var inProgress = false;
 	/* С какой статьи надо делать выборку из базы при ajax-запросе */
-	var startFrom = 10;
+	var post = 10;
 
 	$(window).scroll(function() {
 
@@ -212,7 +212,7 @@ jQuery(document).ready(function(){
 				/* метод отправки данных */
 				method: 'POST',
 				/* данные, которые мы передаем в файл-обработчик */
-				data: {"startFrom" : startFrom},
+				data: {"post" : startFrom},
 				/* что нужно сделать до отправки запрса */
 				beforeSend: function() {
 					/* меняем значение флага на true, т.е. запрос сейчас в процессе выполнения */
