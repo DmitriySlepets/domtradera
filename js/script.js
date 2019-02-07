@@ -225,7 +225,7 @@ jQuery(document).ready(function(){
 					$.each(post, function(index, post){
 
 						/* Отбираем по идентификатору блок со статьями и дозаполняем его новыми данными */
-						$("#articles").append("<p><b>" + post.title + "</b><br />" + post.text + "</p>");
+						$("#article").append("<p><b>" + post.title + "</b><br />" + post.text + "</p>");
 					});
 
 					/* По факту окончания запроса снова меняем значение флага на false */
