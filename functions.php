@@ -815,6 +815,11 @@ add_action( 'my_brokers', 'getPageBrokers');
 /**
  *
  */
+function get_mobile_detect(){
+    require_once 'lib/mobile-detect/Mobile_Detect.php'; // Подключаем скрипт
+    $detect = new Mobile_Detect; // Создаём экземпляр класса
+    return $detect;
+}
 function getPageBrokers(){
     global $wpdb;
     $results = $wpdb->get_results( "SELECT * FROM kk_brokers" );

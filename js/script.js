@@ -204,40 +204,34 @@ jQuery(document).ready(function(){
 	$(window).scroll(function() {
 
 		/* Если высота окна + высота прокрутки больше или равны высоте всего документа и ajax-запрос в настоящий момент не выполняется, то запускаем ajax-запрос */
-		if($(window).scrollTop() + $(window).height() >= $(document).height() - 200 && !inProgress) {
+		if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProgress) {
 
 			jQuery.ajax({
 				/* адрес файла-обработчика запроса */
 				url: '/wp-content/themes/newspaperly/ajax/get_lenta.php',
-				/* метод отправки данных */
-				method: 'POST',
-				/* данные, которые мы передаем в файл-обработчик */
-				data: {"post" : startFrom},
+				type: "post",
 				/* что нужно сделать до отправки запрса */
 				beforeSend: function() {
 					/* меняем значение флага на true, т.е. запрос сейчас в процессе выполнения */
 					inProgress = true;}
 				/* что нужно сделать по факту выполнения запроса */
-			}).done(function(data){
-
-				/* Преобразуем результат, пришедший от обработчика - преобразуем json-строку обратно в массив */
-				data = jQuery.parseJSON(data);
+			}).done(function(post){
 
 				/* Если массив не пуст (т.е. статьи там есть) */
-				if (data.length > 0) {
+				if (post.length > 0) {
 
 					/* Делаем проход по каждому результату, оказвашемуся в массиве,
                     где в index попадает индекс текущего элемента массива, а в data - сама статья */
-					$.each(data, function(index, data){
+					$.each(post, function(index, post){
 
 						/* Отбираем по идентификатору блок со статьями и дозаполняем его новыми данными */
-						$("#articles").append("<p><b>" + data.title + "</b><br />" + data.text + "</p>");
+						$("#articles").append("<p><b>" + post.title + "</b><br />" + post.text + "</p>");
 					});
 
 					/* По факту окончания запроса снова меняем значение флага на false */
 					inProgress = false;
 					// Увеличиваем на 10 порядковый номер статьи, с которой надо начинать выборку из базы
-					startFrom += 10;
+					post += 10;
 				}});
 		}
 	});
