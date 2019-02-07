@@ -13,11 +13,23 @@
 </div>
 
 <?php
+require_once 'lib/mobile-detect/Mobile_Detect.php'; //new
+$detect = new Mobile_Detect; // Создаём экземпляр класса//new
 
-	if($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'],'page')==false){
-	    echo '<h1 class="entry-title" style="padding-top: 10px;background-color: #fff;margin-bottom: 0px;">Читайте также:</h1>';
-		echo do_shortcode("[post_grid id='894']"); 
-	}
+if ($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'], 'page') == false) {
+    echo '<h1 class="entry-title" style="padding-top: 10px;background-color: #fff;margin-bottom: 0px;">Читайте также:</h1>';
+    //echo do_shortcode("[post_grid id='894']");
+    //new
+
+    if ($detect->isMobile()){
+    //<?php echo do_shortcode( '[the-post-grid id="44511" title="Список новостей"]' );
+        echo do_shortcode("[the-post-grid id='44511']");
+        }
+   else{
+        echo do_shortcode("[post_grid id='894']");
+        }
+    //new
+}
 
 ?>
 
@@ -25,6 +37,7 @@
 </div><!-- #content -->
 
 <script>
+
 	var elem = document.getElementsByClassName("text")[0];
 	if (elem != undefined) {
 		var parent = elem.parentNode;
