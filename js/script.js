@@ -196,17 +196,19 @@ jQuery(document).scroll(function () {
 
 jQuery(document).ready(function(){
 			jQuery(function($){
+				var block=false;
 				$(window).scroll(function() {
 
 					/* Если высота окна + высота прокрутки больше или равны высоте всего документа и ajax-запрос в настоящий момент не выполняется, то запускаем ajax-запрос */
-					if($(window).scrollTop() + $(window).height() >= $(document).height() && !startFrom) {
+					if($(window).scrollTop() + $(window).height() >= $(document).height() && !block) {
+						block=true;
 					var data = {
 						'action': 'script',
 						'query': true_posts,
 						'page' : current_page
 					};
 					$.ajax({
-						url:ajaxurl, // обработчик
+						url:'/wp-content/themes/newspaperly/ajax/get_lenta.php', // обработчик
 						data:data, // данные
 						type:'POST', // тип запроса
 						success:function(data){
@@ -217,6 +219,7 @@ jQuery(document).ready(function(){
 							} else {
 								$('#scroll').remove(); // если мы дошли до последней страницы постов, скроем кнопку
 							}
+						block=false;
 						}
 					});
 				};
