@@ -1058,6 +1058,11 @@ function get_url(){
 
 }
 //Вывод страниц
+function true_loadmore_scripts() {
+    wp_enqueue_script('jquery'); // скорее всего он уже будет подключен, это на всякий случай
+    wp_enqueue_script( 'true_loadmore', get_stylesheet_directory_uri() . '/script.js', array('jquery') );
+}
+add_action( 'wp_enqueue_scripts', 'true_loadmore_scripts' );
 function true_load_posts(){
     $args = unserialize(stripslashes($_POST['query']));
     $args['paged'] = $_POST['page'] + 1; // следующая страница
