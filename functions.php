@@ -1064,18 +1064,22 @@ function true_load_posts(){
     $args['post_status'] = 'publish';
     $q = new WP_Query($args);
     if( $q->have_posts() ):
-        while($q->have_posts()): $q->the_post();
+        while ( have_posts() ) : the_post();
+
             get_template_part( 'template-parts/content', get_post_format() );
-           endwhile;
-           echo '<div class="text-center paging-navs">';
-           the_posts_pagination();
-           echo '</div>';
-         else :
-            get_template_part( 'template-parts/content', 'none' );
-          endwhile;
-            endif;
+
+        endwhile;
+        echo '<div class="text-center paging-navs">';
+        the_posts_pagination();
+        echo '</div>';
+    else :
+
+        get_template_part( 'template-parts/content', 'none' );
+
+    endif;
              wp_reset_postdata();
                    die();
+
 }
 
 
