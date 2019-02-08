@@ -1083,6 +1083,6 @@ function true_load_posts(){
 }
 
 
-add_action('wp_ajax_loadmore', 'true_load_posts');
+add_action('wp_ajax_script', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 ?>
