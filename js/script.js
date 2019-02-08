@@ -206,7 +206,7 @@ jQuery(document).ready(function(){
 						'page' : current_page
 					};
 					$.ajax({
-						url:'/wp-content/themes/newspaperly/ajax/get_lenta.php', // обработчик
+						url:ajaxurl, // обработчик
 						data:data, // данные
 						type:'POST', // тип запроса
 						success:function(data){
