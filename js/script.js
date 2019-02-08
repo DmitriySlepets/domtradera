@@ -214,9 +214,6 @@ jQuery(document).ready(function(){
 						success:function(data){
 							if( data ) {
 								$posts = get_posts(data);
-								foreach( $posts as $post ){
-									setup_postdata($post);
-								}
 								current_page++; // увеличиваем номер страницы на единицу
 								block = false;
 							}
