@@ -199,7 +199,7 @@ jQuery(document).ready(function(){
 				$(window).scroll(function() {
 
 					/* Если высота окна + высота прокрутки больше или равны высоте всего документа и ajax-запрос в настоящий момент не выполняется, то запускаем ajax-запрос */
-					if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProgress) {
+					if($(window).scrollTop() + $(window).height() >= $(document).height() && !startFrom) {
 					var data = {
 						'action': 'script',
 						'query': true_posts,
