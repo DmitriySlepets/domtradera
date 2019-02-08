@@ -18,7 +18,7 @@ foreach ($myposts as $post):
     setup_postdata($post);
     get_template_part('template-parts/content', get_post_format());
 endforeach;
-
+$post=$myposts;
 ?>
 
 

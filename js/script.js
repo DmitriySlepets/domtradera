@@ -195,45 +195,32 @@ jQuery(document).scroll(function () {
 
 
 jQuery(document).ready(function(){
+			jQuery(function($){
+				$(window).scroll(function() {
 
-	/* Переменная-флаг для отслеживания того, происходит ли в данный момент ajax-запрос. В самом начале даем ей значение false, т.е. запрос не в процессе выполнения */
-	var inProgress = false;
-	/* С какой статьи надо делать выборку из базы при ajax-запросе */
-	var startFrom = 10;
-
-	$(window).scroll(function() {
-
-		/* Если высота окна + высота прокрутки больше или равны высоте всего документа и ajax-запрос в настоящий момент не выполняется, то запускаем ajax-запрос */
-		if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProgress) {
-
-			jQuery.ajax({
-				/* адрес файла-обработчика запроса */
-				url: '/wp-content/themes/newspaperly/ajax/get_lenta.php',
-				type: "post",
-				/* что нужно сделать до отправки запрса */
-				beforeSend: function() {
-					/* меняем значение флага на true, т.е. запрос сейчас в процессе выполнения */
-					inProgress = true;}
-				/* что нужно сделать по факту выполнения запроса */
-			}).done(function(post){
-
-				/* Если массив не пуст (т.е. статьи там есть) */
-				if (post.length > 0) {
-
-					/* Делаем проход по каждому результату, оказвашемуся в массиве,
-                    где в index попадает индекс текущего элемента массива, а в data - сама статья */
-					$.each(post, function(index, post){
-
-						/* Отбираем по идентификатору блок со статьями и дозаполняем его новыми данными */
-						$("#article").append("<p><b>" + post.title + "</b><br />" + post.text + "</p>");
+					/* Если высота окна + высота прокрутки больше или равны высоте всего документа и ajax-запрос в настоящий момент не выполняется, то запускаем ajax-запрос */
+					if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProgress) {
+					var data = {
+						'action': 'loadmore',
+						'query': true_posts,
+						'page' : current_page
+					};
+					$.ajax({
+						url:'/wp-content/themes/newspaperly/ajax/get_lenta.php', // обработчик
+						data:data, // данные
+						type:'POST', // тип запроса
+						success:function(data){
+							if( data ) {
+								$('#true_loadmore').before(data); // вставляем новые посты
+								current_page++; // увеличиваем номер страницы на единицу
+								if (current_page == max_pages) $("#true_loadmore").remove(); // если последняя страница, удаляем кнопку
+							} else {
+								$('#true_loadmore').remove(); // если мы дошли до последней страницы постов, скроем кнопку
+							}
+						}
 					});
-
-					/* По факту окончания запроса снова меняем значение флага на false */
-					inProgress = false;
-					// Увеличиваем на 10 порядковый номер статьи, с которой надо начинать выборку из базы
-					startFrom += 10;
-				}});
-		}
+				};
+			});
 	});
 });
 
