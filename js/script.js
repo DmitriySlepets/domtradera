@@ -213,13 +213,13 @@ jQuery(document).ready(function(){
 						type:'POST', // тип запроса
 						success:function(data){
 							if( data ) {
-								$('#scroll').before(data); // вставляем новые посты
+								$posts = get_posts(data);
+								foreach( $posts as $post ){
+									setup_postdata($post);
+								}
 								current_page++; // увеличиваем номер страницы на единицу
-								if (current_page == max_pages) $("#scroll").remove(); // если последняя страница, удаляем кнопку
-							} else {
-								$('#scroll').remove(); // если мы дошли до последней страницы постов, скроем кнопку
+								block = false;
 							}
-						block=false;
 						}
 					});
 				};
