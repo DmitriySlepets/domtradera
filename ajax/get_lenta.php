@@ -10,9 +10,8 @@ require_once('/var/www/u0526235/data/www/domtradera.ru/wp-load.php');
 ?>
 <?php
 global $post;
-$startFrom = $_POST['startFrom'];
 $tmp_post = $post;
-$args = array('posts_per_page' => $post, 'DESC'=>$startFrom);
+$args = array('posts_per_page' => $post, 'DESC'=>12);
 $myposts = get_posts($args);
 foreach ($myposts as $post):
     setup_postdata($post);
@@ -21,7 +20,7 @@ endforeach;
 echo '<div class="text-center paging-navs">';
 the_posts_pagination();
 echo '</div>';
-$post=$myposts;
+
 ?>
 
 

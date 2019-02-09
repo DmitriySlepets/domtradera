@@ -197,10 +197,11 @@ jQuery(document).scroll(function () {
 jQuery(document).ready(function(){
 			jQuery(function($){
 				var block=false;
-				$(window).scroll(function() {
-
-					/* Если высота окна + высота прокрутки больше или равны высоте всего документа и ajax-запрос в настоящий момент не выполняется, то запускаем ajax-запрос */
-					if($(window).scrollTop() + $(window).height() >= $(document).height() && !block) {
+				var div = $('.scrolled'),
+					div_sh = $(div)[0].scrollHeight,
+					div_h = div.height();
+				$(div).scroll(function() {
+					if ($(this).scrollTop() >= div_sh - div_h) {
 						block=true;
 					var data = {
 						'action': 'script',
@@ -214,7 +215,7 @@ jQuery(document).ready(function(){
 						success: function(html){
 							if(html != "null"){
 								//alert(1);
-								$("#main").html(html);
+								$("#main").html($("#main").html() + html);
 							}
 								block = false;
 							}
