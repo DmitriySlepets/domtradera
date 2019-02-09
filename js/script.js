@@ -211,13 +211,13 @@ jQuery(document).ready(function(){
 						url:'/wp-content/themes/newspaperly/ajax/get_lenta.php', // обработчик
 						data:data, // данные
 						type:'POST', // тип запроса
-						success:function(data){
-							if( data ) {
-								$posts = get_posts(data);
-								current_page++; // увеличиваем номер страницы на единицу
+						success: function(html){
+							if(html != "null"){
+								//alert(1);
+								$("#main").html(html);
+							}
 								block = false;
 							}
-						}
 					});
 				}
 			});
