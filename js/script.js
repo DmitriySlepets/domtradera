@@ -219,7 +219,7 @@ jQuery(document).ready(function(){
 							}
 						}
 					});
-				};
+				}
 			});
 	});
 });
