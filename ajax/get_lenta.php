@@ -6,7 +6,7 @@
  * @package newspaperly
  */
 // подгружаем среду WordPress
-require_once('/var/www/u0526235/data/www/domtradera.ru/wp-load.php');
+
 ?>
 <?php
 global $post;
@@ -20,7 +20,5 @@ endforeach;
 echo '<div class="text-center paging-navs">';
 the_posts_pagination();
 echo '</div>';
-
+$args['paged'] = $_POST['page'] + 1;
 ?>
-
-
