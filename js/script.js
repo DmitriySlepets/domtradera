@@ -1,4 +1,3 @@
-
 jQuery.fn.exists = function( callback ) {
 
 	var args = [].slice.call( arguments, 1 );
@@ -206,7 +205,7 @@ jQuery(document).ready(function(){
 					var data = {
 						'action': 'script',
 						'query': true_posts,
-						'page' : current_page
+						'page' : $("#lenta").html()
 					};
 					$.ajax({
 						url:'/wp-content/themes/newspaperly/ajax/get_lenta.php', // обработчик
@@ -216,6 +215,7 @@ jQuery(document).ready(function(){
 							if(html != "null"){
 								//alert(1);
 								$("#main").html($("#main").html() + html);
+								$("#lenta").html(+$("#lenta").html() + 1);
 							}
 								block = false;
 							}

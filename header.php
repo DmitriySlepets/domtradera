@@ -179,7 +179,7 @@
 						</div>
 
 					</div>
-
+        <div id="lenta" style="display: none">1</div>
 					<div id="content" class="site-content clearfix">
 						<div class="content-wrap">
 							<div class="content-wrap-bg">
