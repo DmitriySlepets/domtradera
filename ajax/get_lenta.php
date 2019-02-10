@@ -10,7 +10,7 @@
 ?>
 <?php
 global $post;
-$tmp_post = $post;
+$tmp_post = $post++;
 $args = array('posts_per_page' => $post, 'DESC'=>12);
 $myposts = get_posts($args);
 foreach ($myposts as $post):
@@ -20,5 +20,4 @@ endforeach;
 echo '<div class="text-center paging-navs">';
 the_posts_pagination();
 echo '</div>';
-$args['paged'] = $_POST['page'] + 1;
 ?>
