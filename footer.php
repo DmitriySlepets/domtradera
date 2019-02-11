@@ -16,7 +16,13 @@
 
 	if($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'],'page')==false){
 	    echo '<h1 class="entry-title" style="padding-top: 10px;background-color: #fff;margin-bottom: 0px;">Читайте также:</h1>';
-		echo do_shortcode("[post_grid id='894']"); 
+	    $detect = get_mobile_detect();
+        if ($detect->isMobile()){
+            echo do_shortcode("[the-post-grid id='45806']");
+        }
+        else{
+            echo do_shortcode("[post_grid id='894']");
+        }
 	}elseif($_SERVER['REQUEST_URI'] == '/'){
 ?>
 	    <script>
@@ -24,7 +30,7 @@
              * ajax обновление главной страницы
              */
             jQuery(document).ready(function(){
-                setInterval('show()',5000);
+                setInterval('show()',300000);
             });
             function show() {
                 jQuery.ajax({
