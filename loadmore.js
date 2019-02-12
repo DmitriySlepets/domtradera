@@ -1,6 +1,9 @@
 jQuery(function($){
     $('#true_loadmore').click(function(){
-        $('#primary #main article').hide();
+        parameters = {
+            duration: 3000
+        }
+        $('#primary #main article').hide(parameters);
         $('.yandex_list').remove();
         $(this).text('Загружаю...'); // изменяем текст кнопки, вы также можете добавить прелоадер
         var data = {

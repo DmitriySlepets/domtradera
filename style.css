@@ -3022,5 +3022,11 @@ article .b-social .b-social-icon {display: inline-block; padding: 0;width: 34px;
 article .article-share-name .b-social{display: inline-block;  margin-left: 0;  position: relative;  z-index: 1;}
 /*статья - конец*/
 
+/*ajax - подробнее - начало*/
+.more_block{text-align: center;}
+#true_loadmore{cursor: pointer;font-weight: bold;text-align: center;margin-top: 20px;display: inline-block;color: #000;padding: 7px 19px 7px 19px;border-radius: 18px;border: 1px solid rgba(0, 0, 0, 0.5);font-size: 14px;text-decoration: none;font-family: OpenSans-Semibold,sans-serif;background: rgba(255,255,255,.15);margin-bottom: 20px;}
+#true_loadmore:hover{background: #000;color: #fff;}
+/*ajax - подробнее - конец*/
+
 
 

@@ -210,3 +210,22 @@ jQuery(".b-navbar-search-area input[type=\"submit\"]").click(function(){
 
 });
 
+/**
+ * ajax обновление новости в шапке
+ */
+jQuery(document).ready(function(){
+    setInterval('show1()',5000);
+});
+function show1() {
+    jQuery.ajax({
+        url: "/wp-content/themes/newspaperly/ajax/last_news.php",
+        cache: false,
+        type: "post",
+        success: function(html){
+            if(html != "null"){
+                //alert(1);
+                $("#last-news").html(html);
+            }
+        }
+    });
+}

@@ -46,7 +46,7 @@ get_header(); ?>
                     var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
                     var max_pages = '<?php echo $wp_query->max_num_pages; ?>';
                 </script>
-                <div class="more_block" ><div class="btn_more_blocks" id="true_loadmore" style="padding: 20px;color: #ff1313;cursor: pointer;font-weight: bold;text-align: center;margin-top: 20px;">Показать больше материалов</div></div>
+                <div class="more_block" ><div class="btn_more_blocks" id="true_loadmore">Показать больше материалов</div></div>
         <?php endif;
         /*echo '<div class="text-center paging-navs">';
         the_posts_pagination();

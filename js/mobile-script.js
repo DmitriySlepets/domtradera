@@ -35,3 +35,22 @@ jQuery(document).ready(function() {
         }
     });
 });
+/**
+ * ajax обновление главной страницы
+ */
+jQuery(document).ready(function(){
+    setInterval('show()',300000);
+});
+function show() {
+    jQuery.ajax({
+        url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
+        cache: false,
+        type: "post",
+        success: function(html){
+            if(html != "null"){
+                //alert(1);
+                $("#main").html(html);
+            }
+        }
+    });
+}
