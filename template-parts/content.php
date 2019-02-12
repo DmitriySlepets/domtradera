@@ -114,7 +114,7 @@
         }
     endif;
 ?>	
-<div style="height:auto;max-height:300px;margin: 0 auto;display: inline-block;float: left;width: 100%;">
+<div class="yandex_list" style="height:auto;max-height:300px;margin: 0 auto;display: inline-block;float: left;width: 100%;">
     <!-- Yandex.RTB R-A-291518-<?php echo $kkPositonMar; ?> -->
     <div id="yandex_rtb_R-A-291518-<?php echo $kkPositonMar; ?>"></div>
     <script type="text/javascript">
