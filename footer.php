@@ -33,7 +33,8 @@
                 setInterval('show()',300000);
             });
             function show() {
-                jQuery.ajax({
+                document.location.href = window.location.href;
+                /*jQuery.ajax({
                     url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
                     cache: false,
                     type: "post",
@@ -43,7 +44,7 @@
                             $("#main").html(html);
                         }
                     }
-                });
+                });*/
             }
         </script>
 <?php
@@ -283,5 +284,21 @@
         <noscript><div><img src="https://mc.yandex.ru/watch/51650093" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
 	</div>
+    <a href="#" class="scrollup">Наверх</a>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 1300) {
+                    $('.scrollup').fadeIn();
+                } else {
+                    $('.scrollup').fadeOut();
+                }
+            });
+            $('.scrollup').click(function(){
+                $("html, body").animate({ scrollTop: 0 }, 1000);
+                return false;
+            });
+        });
+    </script>
 </body>
 </html>

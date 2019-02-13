@@ -3009,6 +3009,7 @@ a, a:visited, a:focus { color: inherit; text-decoration: none; border: none;}
 .social-button-block .twi-share { background: url(/wp-content/themes/newspaperly/icons/top-banner/twitter.svg) no-repeat;}
 
 /*статья - начало*/
+article{  box-shadow: 0 0 1px 0 lightgray;/* Серая рамка */  }
 article .b-social .b-social-icon.fb_i_v2 { background: url(icons/top-banner/facebook.svg) no-repeat;}
 article .b-social .b-social-icon.vk_i_v2 {background: url(icons/top-banner/vk.svg) no-repeat;}
 article .b-social .b-social-icon.ok_i_v2 {background: url(icons/top-banner/ok.svg) no-repeat;}
@@ -3027,6 +3028,10 @@ article .article-share-name .b-social{display: inline-block;  margin-left: 0;  p
 #true_loadmore{cursor: pointer;font-weight: bold;text-align: center;margin-top: 20px;display: inline-block;color: #000;padding: 7px 19px 7px 19px;border-radius: 18px;border: 1px solid rgba(0, 0, 0, 0.5);font-size: 14px;text-decoration: none;font-family: OpenSans-Semibold,sans-serif;background: rgba(255,255,255,.15);margin-bottom: 20px;}
 #true_loadmore:hover{background: #000;color: #fff;}
 /*ajax - подробнее - конец*/
+
+/*кнопка вверх - начало*/
+.scrollup{ width:40px; height:40px; opacity:0.3; position:fixed; bottom:50px; right:100px; display:none; text-indent:-9999px; background: url('/wp-content/themes/newspaperly/icons/button/icon_top.png') no-repeat; }
+/*кнопка вверх - конец*/
 
 
 
