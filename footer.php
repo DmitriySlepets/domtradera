@@ -288,14 +288,15 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $(window).scroll(function(){
-                if ($(this).scrollTop() > 1300) {
+                if ($(this).scrollTop() > 10) {
                     $('.scrollup').fadeIn();
                 } else {
                     $('.scrollup').fadeOut();
                 }
             });
+
             $('.scrollup').click(function(){
-                $("html, body").animate({ scrollTop: 0 }, 1000);
+                $("html, body").animate({ scrollTop: 0 }, 200);
                 return false;
             });
         });

@@ -38,7 +38,7 @@
 #header_main_mobile #menu_main li.active a {color: #b11116;}
 #header_main_mobile #menu_main li a {font: bold 11px/30px Arial, sans-serif;color: #333;text-transform: uppercase;padding-left: 10px;text-decoration: none;}
 /**
-список новостей
+* список новостей
 */
 #secondary{display:none;}
 #primary{float: none;width:100%;}
@@ -56,3 +56,7 @@
  */
 .brokers .blogposts-list-content .entry-content {display: block;  height: auto;  margin-top: 0px;  overflow: hidden;}
 .brokers .about_b{left: 0;  right: unset;}
+/**
+* плитка интересного
+ */
+.rt-tpg-container .layout3 .rt-holder .rt-detail h4 {font-size: 18px !important;}

@@ -54,3 +54,15 @@ function show() {
         }
     });
 }
+$(window).scroll(function(){
+    if ($(this).scrollTop() > 10) {
+        $('.scrollup').fadeIn();
+    } else {
+        $('.scrollup').fadeOut();
+    }
+});
+
+$('.scrollup').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 200);
+    return false;
+});
