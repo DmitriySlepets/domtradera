@@ -179,12 +179,14 @@ jQuery(document).scroll(function () {
         /*$('.yandex-cotext').removeAttr("style");
         $('.yandex-cotext').attr("style","display:none;");*/
         $('#masthead').attr("style","margin-bottom:150px");
+        //$('.header-bg').slideToggle("slow");
 	}else{
 		$('.header-bg').removeAttr("id");
         $('.navbar').removeAttr("id");
         /*$('.yandex-cotext').removeAttr("style");
         $('.yandex-cotext').attr("style","height:auto;max-height:300px;margin: 0 auto;");*/
         $('#masthead').removeAttr("style");
+        //$('.header-bg').slideToggle("slow");
 	}
 });
 
@@ -229,3 +231,4 @@ function show1() {
         }
     });
 }
+

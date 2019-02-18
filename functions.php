@@ -1024,7 +1024,7 @@ function getSocialHtml(){
                  <ul class="social-button-block">
                <li class="fb-share social-button"><a rel="nofollow" title="Поделиться в Facebook" href="//www.facebook.com/dialog/share?app_id=406317839387165&amp;utm_source=fbsharing&amp;utm_medium=social&amp;href='.get_url().'" target="_blank"></a></li>
                 <li class="vk-share social-button"><a rel="nofollow" title="Поделиться в Vkontakte" href="//vk.com/share.php?utm_source=vksharing&amp;utm_medium=social&amp;url='.get_url().'" target="_blank"></a></li>
-                <li class="ok-share social-button"><a rel="nofollow"  title="Поделиться в Одноклассники" href="//www.odnoklassniki.ru/dk?utm_source=oksharing&amp;utm_medium=social&amp;st.cmd=addShare&amp;st.s=1&amp;st._surl='.get_url().'" target="_blank"></a></li>
+                <li class="ok-share social-button"><a rel="nofollow"  title="Поделиться в Одноклассники" href="https://connect.ok.ru/dk?cmd=WidgetSharePreview&st.cmd=WidgetSharePreview&st._aid=ExternalShareWidget_SharePreview&st.shareUrl='.get_url().'&st.hoster=https%3A%2F%2Fapiok.ru%2Fext%2Flike" target="_blank"></a></li>
                  <li class="twi-share social-button"><a rel="nofollow"  title="Поделиться в Twitter" href="//twitter.com/intent/tweet?via=domtraderaru&amp;utm_source=twsharing&amp;utm_medium=social&amp;url='.get_url().'" target="_blank"></a></li>
                  </ul>
                 </div><div class="article-share-name"> 

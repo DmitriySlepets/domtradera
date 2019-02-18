@@ -30,22 +30,18 @@
              * ajax обновление главной страницы
              */
             jQuery(document).ready(function(){
-                setInterval('show()',300000);
+                var perem = setTimeout(function () {
+                    document.location.href = window.location.href;
+                },300000);
+                $("#auto_update").html(perem);
             });
-            function show() {
-                document.location.href = window.location.href;
-                /*jQuery.ajax({
-                    url: "/wp-content/themes/newspaperly/ajax/get_news_main.php",
-                    cache: false,
-                    type: "post",
-                    success: function(html){
-                        if(html != "null"){
-                            //alert(1);
-                            $("#main").html(html);
-                        }
-                    }
-                });*/
-            }
+            $(window).scroll(function () {
+                clearTimeout($("#auto_update").html());
+                perem = setTimeout(function () {
+                    document.location.href = window.location.href;
+                }, 300000);
+                $("#auto_update").html(perem);
+            });
         </script>
 <?php
     }
@@ -284,6 +280,7 @@
         <noscript><div><img src="https://mc.yandex.ru/watch/51650093" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
 	</div>
+    <div id="auto_update" style="display: none"></div>
     <a href="#" class="scrollup">Наверх</a>
     <script type="text/javascript">
         $(document).ready(function(){
