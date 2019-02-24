@@ -133,7 +133,7 @@
       
         </header>
         <div style="height:auto;max-height:300px;margin: 0 auto;" class="yandex-cotext">
-            <!-- Yandex.RTB R-A-291518-2 -->
+             <!-- Yandex.RTB R-A-291518-2 -->
             <div id="yandex_rtb_R-A-291518-2"></div>
             <script type="text/javascript">
                 (function(w, d, n, s, t) {
