@@ -28,49 +28,63 @@
         <meta property="og:image" content="http://domtradera.ru/wp-content/uploads/2018/09/cropped-logo_main.png">
     <?php } ?>
     <script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>
-    <script>
+    <!--<script>
           jQuery(document).ready(function () {
-            windowSizeMain();
-            windowSizePI();
+            //windowSizeMain();
+            //windowSizePI();
+              fontSize();
             /*jQuery(window).resize(function() {
                 windowSizeMain();
                 windowSizePI();
             });*/
         });
-        function windowSizeMain(){
-            if (jQuery(window).width() <= '992'){
-                jQuery('.blogposts-list-content h2.entry-title a').each(function() {
-                    var heightTitleA = jQuery(this).height();
+
+          function fontSize() {
+              jQuery('.grid-items .element.element_0.title a').each(function() {
+              var width = $('.blogposts-list-content h2.entry-title a').width(); // ширина, от которой идет отсчет
+              var fontSize = 12; // минимальный размер шрифта
+              var bodyWidth = $('.blogposts-list-content h2.entry-title').width();
+              var multiplier = bodyWidth / width;
+              if ($('.blogposts-list-content h2.entry-title').width() >= width) {
+                  fontSize = fontSize * multiplier;
+              $('.blogposts-list-content h2.entry-title a').css({fontSize: fontSize+'px'});
+          }}}
+          $(function() { fontSize(); });
+       // function windowSizeMain(){
+            //if (jQuery(window).width() <= '992'){
+            //    jQuery('.blogposts-list-content h2.entry-title a').each(function() {
+              /**      var heightTitleA = jQuery(this).height();
                     var widthTitleA = jQuery(this).width();
-                    if (heightTitleA < 80) {
-                        var coeff_width = widthTitleA/ heightTitleA;
-                        if(coeff_width>2.5){
-                            coeff_width = 2
-                        }
-                        var sizeFont = coeff_width * 11;
+                    /*if (heightTitleA < 60) {*/
+                      //  var coeff_width = widthTitleA/ heightTitleA;
+                      //  if(coeff_width>2.5){
+                       //     coeff_width = 2
+                       // }
+                     /**   var sizeFont = coeff_width * 11;
                         if(sizeFont>0){
-                            sizeFont = sizeFont * 0.9;
+                            sizeFont = sizeFont * 0.7;
                         }
                         var lineHeight = sizeFont;
                         if(lineHeight<11){
                             lineHeight = 11;
                         }
                         jQuery(this).attr("style","font-size:"+sizeFont + "px !important;line-height:" + lineHeight + "px");
-                    }/*else{
+                    /*}else{
                         jQuery(this).attr("style","font-size:"+sizeFont + "px !important;line-height:" + lineHeight + "px");
                     }*/
-                });
+              /**  });
             }else{
                 jQuery('.blogposts-list-content h2.entry-title a').each(function() {
                     jQuery(this).removeAttr("style");
                 });
             }
-        }
+        }**/
+
         function windowSizePI() {
             jQuery('.grid-items .element.element_0.title a').each(function() {
                 var heightTitleA = jQuery(this).height();
                 var widthTitleA = jQuery(this).width();
-                if (heightTitleA < 80) {
+                if (heightTitleA < 60) {
                     var coeff_width = widthTitleA / heightTitleA;
                     if(coeff_width>2.5){
                         coeff_width = 2
@@ -88,7 +102,7 @@
                 }
             });
         }
-    </script>
+    </script>-->
     <?php
     /*require_once 'lib/mobile-detect/Mobile_Detect.php'; // Подключаем скрипт
     $detect = new Mobile_Detect; // Создаём экземпляр класса

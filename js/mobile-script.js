@@ -75,3 +75,37 @@ jQuery(document).ready(function(){
     });
 
 });
+
+jQuery(document).ready(function () {
+    //windowSizeMain();
+    //windowSizePI();
+    fontSize();
+    /*jQuery(window).resize(function() {
+        windowSizeMain();
+        windowSizePI();
+    });*/
+});
+
+jQuery ($(".blogposts-list-content h2.entry-title").each(function ()
+{
+    var length = $(this).text().replace('.blogposts-list-content h2.entry-title a', '').length,
+        size = $(this).width() / length * parseFloat($(this).data('ratio'));
+    if ($(this).find('a').size())
+    {
+        $(this).find('a').css('font-size', size + 'px');
+    }
+    else
+    {
+        $(this).css('font-size', size + 'px');
+    }
+}))
+       // var width = $('.blogposts-list-content h2.entry-title a').width(); // ширина, от которой идет отсчет
+      //  var fontSize = 12; // минимальный размер шрифта
+       // var bodyWidth = $('.blogposts-list-content h2.entry-title').width();
+      //  var multiplier = bodyWidth / width;
+       // if ($('.blogposts-list-content h2.entry-title').width() >= width) {
+       //     fontSize = fontSize * multiplier;
+       //     $('.blogposts-list-content h2.entry-title a').css({fontSize: fontSize + 'px'});
+       // }
+   // });
+;
