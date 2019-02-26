@@ -28,6 +28,21 @@
         <meta property="og:image" content="http://domtradera.ru/wp-content/uploads/2018/09/cropped-logo_main.png">
     <?php } ?>
     <script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>
+    <script>
+        //current tab id
+        var tabId = Math.floor((Math.random()*100)+1);
+
+
+        //On exit, just run once before user close the tab/window.
+        $(window).unload(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'tabControl.php',
+                async:false,
+                data: {"url":window.location.pathname , "action":"closing" , "id":tabId}
+            });
+        });
+    </script>
     <!--<script>
           jQuery(document).ready(function () {
             //windowSizeMain();
