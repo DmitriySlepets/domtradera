@@ -41,23 +41,24 @@
             if (jQuery(window).width() <= '992'){
                 jQuery('.blogposts-list-content h2.entry-title a').each(function() {
                     var heightTitleA = jQuery(this).height();
-                    if (heightTitleA < 55) {
-                        var coeff_width = 60 / heightTitleA;
+                    var widthTitleA = jQuery(this).width();
+                    if (heightTitleA < 80) {
+                        var coeff_width = widthTitleA/ heightTitleA;
                         if(coeff_width>2.5){
                             coeff_width = 2
                         }
                         var sizeFont = coeff_width * 11;
-                        if(sizeFont>18){
-                            sizeFont = 18;
+                        if(sizeFont>0){
+                            sizeFont = sizeFont * 0.9;
                         }
                         var lineHeight = sizeFont;
                         if(lineHeight<11){
                             lineHeight = 11;
                         }
                         jQuery(this).attr("style","font-size:"+sizeFont + "px !important;line-height:" + lineHeight + "px");
-                    }else{
-                        jQuery(this).attr("style","font-size:12px !important;line-height:14px");
-                    }
+                    }/*else{
+                        jQuery(this).attr("style","font-size:"+sizeFont + "px !important;line-height:" + lineHeight + "px");
+                    }*/
                 });
             }else{
                 jQuery('.blogposts-list-content h2.entry-title a').each(function() {
@@ -68,14 +69,15 @@
         function windowSizePI() {
             jQuery('.grid-items .element.element_0.title a').each(function() {
                 var heightTitleA = jQuery(this).height();
-                if (heightTitleA < 55) {
-                    var coeff_width = 60 / heightTitleA;
+                var widthTitleA = jQuery(this).width();
+                if (heightTitleA < 80) {
+                    var coeff_width = widthTitleA / heightTitleA;
                     if(coeff_width>2.5){
                         coeff_width = 2
                     }
                     var sizeFont = coeff_width * 11;
-                    if(sizeFont>18){
-                        sizeFont = 18;
+                    if(sizeFont>0){
+                        sizeFont = sizeFont*0.9;
                     }
                     var lineHeight = sizeFont;
                     if(lineHeight<11){
