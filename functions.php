@@ -1141,11 +1141,11 @@ function true_load_posts(){
                                  class="posts-entry fbox blogposts-list post type-post status-publish format-standard hentry">
                             <div class="blogposts-list-content">
                                 <?php if ($detect->isMobile()): ?>
-                                <a href="<?php echo $itemResult->href; ?>" target="_blank" rel="bookmark"><img class="anons-list"
-                                                                                                               src="<?php echo $itemResult->img; ?>"
-                                                                                                               width="80"
-                                                                                                               height="80"
-                                                                                                               style="object-fit: contain;"></a>
+                                <a href="<?php echo $itemResult->href; ?>" target="_blank" rel="bookmark">
+                                    <img class="anons-list" src="<?php echo $itemResult->img; ?>"
+                                         width="80"
+                                         height="80"
+                                         style="object-fit: contain;"></a>
                                 <header class="entry-header">
                                     <?php else: ?>
                                     <a href="<?php echo $itemResult->href; ?>" target="_blank" rel="bookmark"><img
