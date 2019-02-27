@@ -31,7 +31,6 @@
     <script>
         //current tab id
         window.onfocus = function(){
-            console.log("Ушли мы с этой вкладки. Либо вообще сернули все");
             jQuery(document).ready(function(){
                 var perem = setTimeout(function () {
                     document.location.href = window.location.href;
