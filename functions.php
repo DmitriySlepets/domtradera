@@ -410,9 +410,6 @@ add_action('admin_menu', 'newspaperly_themepage');
 function newspaperly_themepage(){
 	$theme_info = add_theme_page( __('NewsPaperly','newspaperly'), __('NewsPaperly','newspaperly'), 'manage_options', 'newspaperly-info.php', 'newspaperly_info_page' );
 }
-
-
-
 function newspaperly_info_page() {
 	$user = wp_get_current_user();
 	?>
@@ -561,7 +558,6 @@ function newspaperly_info_page() {
 	</div>
 	<?php
 }
-
 // для даты изменения
 function main_get_the_date($the_date, $d, $post) {
     $d = 'd.m.Y';
@@ -578,7 +574,6 @@ function main_get_the_date($the_date, $d, $post) {
     return $the_date;
 }
 add_filter( 'get_the_date', 'main_get_the_date', 10, 3 );
-
 //получить теги
 function the_tags_return( $before = null, $sep = ', ', $after = '' ) {
     if ( null === $before )
@@ -612,7 +607,6 @@ function the_tags_f( $before = null, $sep = ', ', $after = '' ) {
         echo $the_tags;
     }
 }
-
 //получаем автора и время
 function newspaperly_posted_on_return() {
     $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -651,7 +645,6 @@ function newspaperly_posted_on_return() {
     return '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 }
-
 //формируем шапку на мобильном устройстве
 function getMobileHeader(){
     $html = "";
@@ -667,6 +660,7 @@ function getMobileHeader(){
                         $html = $html . '<li class="tap-highlighted"><a href="javascript:void(0);">Подборки</a></li>';
                         $html = $html . '<li class="tap-highlighted"><a href="javascript:void(0);">Информеры</a></li>';
                         $html = $html . '<li class="tap-highlighted"><a href="/brokers/">Брокеры</a></li>';
+                        //$html = $html . '<li class="tap-highlighted"><a href="/brokers-search/">Поиск Брокеры</a></li>';
                         /*$html = $html . '<li class="tap-highlighted"><a href="https://www.hycm.com/ru/hylp/global/start-trading?campaignid=701D0000001iEFH&utm_source=affiliate&utm_medium=affiliate&utm_campaign=ETRASS_EN_Global_LP&a_aid=&clickid=EG7007359&eaid=72204">Начать торговать</a></li>';*/
                     $html = $html . '</ul>';
                 $html = $html . '</div>';
@@ -683,7 +677,6 @@ function getMobileHeader(){
 
     return $html;
 }
-
 //определяем усройство и подставляем нужные стили
 function getStyleForDevice(){
     require_once 'lib/mobile-detect/Mobile_Detect.php'; // Подключаем скрипт
@@ -730,7 +723,6 @@ function get_Social(){
     return html;
 }
 //подключаем основное меню
-
 function getMainMenu(){
     $html = '';
     $html = $html . '<nav class="navbar">';
@@ -740,6 +732,7 @@ function getMainMenu(){
             $html = $html . '<div class="item"><a href="javascript:void(0);">Подборки</a></div>';
             $html = $html . '<div class="item"><a href="javascript:void(0);">Информеры</a></div>';
             $html = $html . '<div class="item"><a href="/brokers/">Брокеры</a></div>';
+            //$html = $html . '<div class="item"><a href="/brokers-search/">Поиск Брокеры</a></div>';
             /*$html = $html . '<div><a href="https://www.hycm.com/ru/hylp/global/start-trading?campaignid=701D0000001iEFH&utm_source=affiliate&utm_medium=affiliate&utm_campaign=ETRASS_EN_Global_LP&a_aid=&clickid=EG7007359&eaid=72204">Начать торговать</a></div>';*/
     $html = $html . '<div class="b-navbar-search">';
     $html = $html . '<div class="b-navbar-search-area">';
@@ -757,7 +750,6 @@ $html = $html . '</div>';
 
             return $html;
 }
-
 //формируем топ панель шапки
 function getTopPanel(){
     $html = '';
@@ -772,7 +764,6 @@ function getTopPanel(){
     $html = $html . '</div>';
     return $html;
 }
-
 //выводим последнюю новость и социальные сети для свернутой шапки
 function getLastPostAndSocials(){
     echo '<div id="last-news">';
@@ -811,6 +802,7 @@ function getSocialNetworks(){
 }
 //получить список брокеров
 add_action( 'my_brokers', 'getPageBrokers');
+add_action('my_brokers_search','getPageBrokersSearch');
 /**
  *
  */
@@ -871,6 +863,69 @@ function getPageBrokers(){
 ?>
     </main>
 <?php
+}
+function getPageBrokersSearch(){
+    global $wpdb;
+    if(isset($_GET['s'])){
+        if($results = $wpdb->get_results( "SELECT * FROM kk_brokers WHERE title LIKE '%" . $_GET['s'] .  "%' || description LIKE '%" . $_GET['s'] .  "%'  LIMIT 3")){
+            //$results = $wpdb->get_results( "SELECT * FROM kk_brokers WHERE title LIKE '%" . $_GET['s'] .  "%' || description LIKE '%" . $_GET['s'] .  "%'");
+        }
+        //print_r($results);
+        else {$results = $wpdb->get_results( "SELECT * FROM kk_brokers WHERE `id` > 1 ORDER BY RAND() LIMIT 1");
+        }
+    }
+    else{
+        $results = $wpdb->get_results( "SELECT * FROM kk_brokers" );}
+        $detect = get_mobile_detect();
+    ?>
+    <main id="main" class="site-main brokers">
+        <?php
+        foreach ($results as $itemResult):
+            //print_r($itemResult);
+            //получим ширину и высоту картинки
+            //разделим ширину на высоту, если больше 1, то будем использовать contain иначе cover
+            try{
+                $size = @getimagesize("http://domtradera.ru" . $itemResult->img);
+                $imgWidth = $size[0];
+                $imgHeight = $size[1];
+                //print_r($size);
+                //echo "width=" . $imgWidth . ";";
+                //echo "height=" . $imgHeight . ";";
+                if ($imgHeight == 0 or $imgWidth == $imgHeight) {
+                    $cover = "cover";
+                } else {
+                    $imgInteger =  intdiv($imgWidth, $imgHeight);
+                    //echo "integer=" . $imgInteger . ";";
+                    $cover = ($imgInteger >= 1) ? "contain" : "cover";
+                }
+            }catch (Exception $ex) {
+                //Выводим сообщение об исключении.
+                //echo $ex->getMessage();
+                $cover = "cover";
+            }
+            ?>
+
+            <article id="post" class="posts-entry fbox blogposts-list post type-post status-publish format-standard hentry">
+                <div class="blogposts-list-content">
+                    <?php if ($detect->isMobile()): ?>
+                    <a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><img class="anons-list" src="<?php echo $itemResult->img;?>" width="80" height="80" style="object-fit: contain;"></a>
+                    <header class="entry-header">
+                        <?php else: ?>
+                        <a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><img class="anons-list" src="<?php echo $itemResult->img;?>" width="80" height="80" style="object-fit: <?php echo $cover;?>; width: 80px; height: 80px;"></a>
+                        <header class="entry-header">
+                            <h2 class="entry-title"><a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><?php echo $itemResult->title;?></a></h2>
+                            <?php endif; ?>
+                        </header><!-- .entry-header -->
+                        <div class="entry-content">
+                            <a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><?php echo $itemResult->description;?></a>
+                        </div><!-- .entry-content -->
+                </div><!--.blogposts-list-content-->
+            </article>
+            <?php
+        endforeach;
+        ?>
+    </main>
+    <?php
 }
 //добавить контекстную рекламу в статью
 //вызов в /wp-includes/post-template.php

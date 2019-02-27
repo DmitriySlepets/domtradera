@@ -17,12 +17,12 @@
 	if($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'],'page')==false){
 	    echo '<h1 class="entry-title" style="padding-top: 10px;background-color: #fff;margin-bottom: 0px;">Читайте также:</h1>';
 	    $detect = get_mobile_detect();
-        if ($detect->isMobile()){
+        /*if ($detect->isMobile()){
             echo do_shortcode("[the-post-grid id='45806']");
         }
-        else{
+        else{*/
             echo do_shortcode("[post_grid id='894']");
-        }
+        /*}*/
 	}elseif($_SERVER['REQUEST_URI'] == '/'){
 ?>
 	    <script>

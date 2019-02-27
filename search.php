@@ -15,7 +15,7 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) : ?>
 
-			<header class="fbox page-header">
+			<header class="fbox page-header" style="padding-bottom: 0px;margin-bottom: 0px;">
 				<h1 class="page-title"><?php
 					/* translators: %s: search query. */
 					printf( esc_html__( 'Результат поиска: %s', 'newspaperly' ), '<span>' . get_search_query() . '</span>' );
@@ -62,6 +62,9 @@ get_header(); ?>
             $html_tags .= '</div>';
             echo $html_tags;
             ?>
+
+            <?php do_action('my_brokers_search'); ?>
+
             <div class="kk_content">
                 <?php
                 /* Start the Loop */
