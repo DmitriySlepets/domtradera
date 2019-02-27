@@ -30,18 +30,15 @@
     <script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>
     <script>
         //current tab id
-        var tabId = Math.floor((Math.random()*100)+1);
-
-
-        //On exit, just run once before user close the tab/window.
-        $(window).unload(function(){
-            $.ajax({
-                type: 'POST',
-                url: 'tabControl.php',
-                async:false,
-                data: {"url":window.location.pathname , "action":"closing" , "id":tabId}
+        window.onfocus = function(){
+            console.log("Ушли мы с этой вкладки. Либо вообще сернули все");
+            jQuery(document).ready(function(){
+                var perem = setTimeout(function () {
+                    document.location.href = window.location.href;
+                },3000);
+                $("#auto_update").html(perem);
             });
-        });
+        }
     </script>
     <!--<script>
           jQuery(document).ready(function () {

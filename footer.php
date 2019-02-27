@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'],'page')==fal
         /**
          * ajax обновление главной страницы
          */
-        jQuery(document).ready(function(){
+        /**jQuery(document).ready(function(){
             var perem = setTimeout(function () {
                 document.location.href = window.location.href;
             },300000);
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'],'page')==fal
                 document.location.href = window.location.href;
             }, 300000);
             $("#auto_update").html(perem);
-        });
+        });**/
     </script>
     <?php
 }

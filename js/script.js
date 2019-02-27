@@ -233,7 +233,3 @@ function show1() {
 	});
 }
 
-jQuery(document).ready(function() {
-	window.parent.location = window.parent.location.href; //JavaScript функция перегрузки страницы
-alert(1);
-});
