@@ -37,6 +37,13 @@
                 },3000);
                 $("#auto_update").html(perem);
             });
+            $(window).scroll(function () {
+                clearTimeout($("#auto_update").html());
+                perem = setTimeout(function () {
+                    document.location.href = window.location.href;
+                }, 300000);
+                $("#auto_update").html(perem);
+            });
         }
     </script>
     <!--<script>
