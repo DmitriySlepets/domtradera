@@ -86,17 +86,13 @@ jQuery(document).ready(function () {
     });*/
 });
 
-jQuery ($(".blogposts-list-content h2.entry-title").each(function ()
-{
-    var length = $(this).text().replace('.blogposts-list-content h2.entry-title a', '').length,
-        size = $(this).width() / length * parseFloat($(this).data('ratio'));
-    if ($(this).find('a').size())
-    {
-        $(this).find('a').css('font-size', size + 'px');
-    }
-    else
-    {
-        $(this).css('font-size', size + 'px');
+jQuery ($('.blogposts-list-content h2.entry-title a').each(function(){
+    var fontSize = 8;
+    var rowHeight = $(this).height();
+    while(rowHeight<60){
+        fontSize=fontSize+1;
+        $(this).css({fontSize: fontSize+'px'});
+        rowHeight = $(this).height();
     }
 }))
        // var width = $('.blogposts-list-content h2.entry-title a').width(); // ширина, от которой идет отсчет
