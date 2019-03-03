@@ -29,7 +29,17 @@
     <?php } ?>
     <script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>
     <script>
-          jQuery(document).ready(function () {
+
+        //current tab id
+        window.onfocus = function(){
+            jQuery(document).ready(function(){
+                var perem = setTimeout(function () {
+                    document.location.href = window.location.href;
+                },3000);
+                $("#auto_update").html(perem);
+            });
+        }
+        jQuery(document).ready(function () {
             windowSizeMain();
             windowSizePI();
             /*jQuery(window).resize(function() {
