@@ -34,14 +34,14 @@
             jQuery(document).ready(function(){
                 var perem = setTimeout(function () {
                     document.location.href = window.location.href;
-                },3000);
+                },1000);
                 $("#auto_update").html(perem);
             });
             $(window).scroll(function () {
                 clearTimeout($("#auto_update").html());
                 perem = setTimeout(function () {
                     document.location.href = window.location.href;
-                }, 300000);
+                }, 1000);
                 $("#auto_update").html(perem);
             });
         }
