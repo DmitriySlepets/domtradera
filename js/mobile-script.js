@@ -109,3 +109,13 @@ jQuery(document).ready(function(){
        // }
    // });
 //;
+jQuery(document).ready(function(){
+    $text = parseInt ($(".blogposts-list-content h2.entry-title a"));
+        //currentWidth = parseInt(text.css("width")),
+        //newWidth = 28;
+
+    if($text >= 200) newWidth = 12;
+    else  newWidth = ($text*12)/200;
+
+    $('.blogposts-list-content h2.entry-title a').css('font-size',newWidth+'px'+'!important');
+});
