@@ -116,6 +116,5 @@ $('.resizable').resizable();
 
 
 if( jQuery().flowtype ){
-    $("#entry-title a").flowtype('minimum : 500,\n' +
-        ' maximum : 1200'+'fontRatio : 30'+'minFont : 12'+'maxFont : 40');
+    $("#blogposts-list-content h2.entry-title a").flowtype();
 }

@@ -16,11 +16,11 @@
 // Establish default settings/variables
 // ====================================
       var settings = $.extend({
-         maximum   : 9999,
+         maximum   : 200,
          minimum   : 1,
-         maxFont   : 9999,
-         minFont   : 1,
-         fontRatio : 35
+         maxFont   : 40,
+         minFont   : 12,
+         fontRatio : 30
       }, options),
 
 // Do the magic math
