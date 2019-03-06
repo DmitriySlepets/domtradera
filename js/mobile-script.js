@@ -114,8 +114,8 @@ jQuery(document).ready(function(){
         //currentWidth = parseInt(text.css("width")),
         //newWidth = 28;
 
-    if($text.length <= 200) newWidth = 12;
-    else  newWidth = ($text.length*12)/200;
+    if($text.length <= 250) newWidth = 12;
+    else  newWidth = ($text.length*12)/250;
 
     $('.blogposts-list-content h2.entry-title a').css('font-size',newWidth+'px'+'!important');
 });
