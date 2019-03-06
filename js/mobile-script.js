@@ -80,8 +80,8 @@ jQuery(document).ready(function(){
 jQuery(document).ready(function(){
     $text = $(".blogposts-list-content h2.entry-title a");
 
-    if($text.length <= 250) newWidth = 12;
-    else  newWidth = ($text.length*12)/250;
+    if($text.length <= 10) newWidth = 14;
+    else  newWidth = ($text.length*14)/250;
 
     $('.blogposts-list-content h2.entry-title a').css('font-size',newWidth+'px'+'!important');
 });
