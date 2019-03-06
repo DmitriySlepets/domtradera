@@ -77,11 +77,45 @@ jQuery(document).ready(function(){
 });
 
 
-jQuery(document).ready(function(){
-    $text = $(".blogposts-list-content h2.entry-title a");
+/*jQuery(document).ready(function(){
+    $text.length = $(".blogposts-list-content h2.entry-title a");
 
-    if($text.length <= 10) newWidth = 14;
-    else  newWidth = ($text.length*14)/250;
+    if($text.length <= 10) newWidth = 16;
+    else  newWidth = ($text.length*16)/250;
 
     $('.blogposts-list-content h2.entry-title a').css('font-size',newWidth+'px'+'!important');
+});*/
+/*function resize(block){
+    block.css({
+        'transform-origin': '0 0',
+        'transform': 'scaleX(1) scaleY(1)'
+    });
+    var parent = block.parent(),
+        block_width = block.outerWidth(),
+        block_height = block.outerHeight(),
+        parent_width = parent.width(),
+        parent_height = parent.height(),
+        coeffX = parent_width / block_width,
+        coeffY = parent_height / block_height;
+
+    block.css({
+        'transform-origin': '0 0',
+        'transform': 'scaleX('+coeffX+') scaleY('+coeffY+')'
+    });
+
+}
+resize($('.entry-title'));
+jQuery(document).ready(function(){
+$(window).on('resize', function(){
+    resize($('.entry-title'));
 });
+});
+
+$('.resizable').resizable();
+*/
+
+
+if( jQuery().flowtype ){
+    $("#entry-title a").flowtype('minimum : 500,\n' +
+        ' maximum : 1200'+'fontRatio : 30'+'minFont : 12'+'maxFont : 40');
+}

@@ -864,7 +864,7 @@ function getPageBrokers(){
                         </header><!-- .entry-header -->
                         <div class="entry-content">
                             <a href="<?php echo $itemResult->href;?>" target="_blank" rel="bookmark"><?php echo $itemResult->description;?></a>
-                        </div><!-- .entry-content -->
+                            </div><!-- .entry-content -->
                 </div><!--.blogposts-list-content-->
             </article>
         <?php
