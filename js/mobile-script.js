@@ -54,15 +54,15 @@ function show() {
         }
     });
 }
-$(window).scroll(function(){
-    if ($(this).scrollTop() > 10) {
-        $('.scrollup').fadeIn();
+jQuery(window).scroll(function(){
+    if (jQuery(this).scrollTop() > 10) {
+        jQuery('.scrollup').fadeIn();
     } else {
-        $('.scrollup').fadeOut();
+        jQuery('.scrollup').fadeOut();
     }
 });
 
-$('.scrollup').click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 200);
+jQuery('.scrollup').click(function(){
+    jQuery("html, body").animate({ scrollTop: 0 }, 200);
     return false;
 });

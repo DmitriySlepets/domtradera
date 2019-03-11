@@ -2835,7 +2835,7 @@ span.bottom-header-below-title {
 #primary-menu{background-color:inherit !important;}
 #primary-menu ul{display:none;}
 
-.site-branding .site-title{position: absolute;margin-left: 74px;margin-top: 10px;font-size: 35px;-moz-transition: all 0.2s ease;  -o-transition: all 0.2s ease;  -webkit-transition: all 0.2s ease;  transition: all 0.2s ease;}
+.site-branding .site-title{position: absolute;margin-left: 74px;margin-top: 10px;font-size: 35px;-moz-transition: all 0.5s ease;  -o-transition: all 0.5s ease;  -webkit-transition: all 0.5s ease;  transition: all 0.5s ease;}
 .site-branding .site-description{position: absolute;  left: 50%;  margin-left: -155px;  text-align: center;  margin-top: -2px;  font-weight: bold;  font-family: Merriweather;  font-size: 16px;}
 /*kk-header-end*/
 
@@ -2854,7 +2854,7 @@ span.bottom-header-below-title {
 @media (min-width: 800px){
 	.blogposts-list-content>a{width: 120px;height: 90px;display: block;float: left;margin-right: 10px;z-index: 1;position: relative;}
 }
-.blogposts-list-content h2 a{height: 60px;overflow: hidden;text-overflow: ellipsis;display: block;font-size:18px !important;line-height: 20px;padding-top: 3px;}
+.blogposts-list-content h2 a{height: 60px;overflow: hidden;text-overflow: ellipsis;display: block;font-size:18px;line-height: 20px;padding-top: 3px;}
 .fbox{padding-top: 10px;padding-bottom: 10px;}
 .kk_post_tags{padding-left: 25px;padding-right: 25px;padding-bottom: 60px;width: 100%;display: block;}
 .kk_post_tags a{margin-right: 10px;float: left;}
@@ -2916,7 +2916,7 @@ article .entry-content{font-family: Merriweather !important;}
 /**
 * новое меню
  */
-.navbar{display: block; position: relative; margin-top: -7px;  margin-bottom: 16px;  border-bottom: 1px solid #33333342;background-color: #fff !important; transition: all 0.2s ease 0s}
+.navbar{display: block; position: relative; margin-top: -7px;  margin-bottom: 16px;  border-bottom: 1px solid #33333342;background-color: #fff !important; transition: all 1.2s ease 0s}
 .navbar .navbar-main {position: relative;display: block;width: 100%;height: 36px;padding: 0 0px 0 6px;}
 .navbar .navbar-main>div{position: relative;display: inline-block;height: 36px;vertical-align: middle;font: bold 14px/38px 'PT Sans', sans-serif;color: #555;text-transform: uppercase;letter-spacing: 0.03em;margin: 0 0px 0 30px;}
 .navbar .navbar-main>div>a{color: inherit;  text-decoration: none;  /*-moz-transition: color 0.3s ease;  -o-transition: color 0.3s ease;  -webkit-transition: color 0.3s ease;  transition: color 0.3s ease;*/}
@@ -2957,9 +2957,9 @@ article .entry-content{font-family: Merriweather !important;}
 /**
 * трансофрмация листания
  */
-#masthead .header-top{-moz-transition: all 0.5s ease;  -o-transition: all 0.5s ease;  -webkit-transition: all 0.5s ease;  transition: all 0.5s ease;}
-#masthead .header-bg{-moz-transition: all 0.5s ease;  -o-transition: all 0.5s ease;  -webkit-transition: all 0.5s ease;  transition: all 0.5s ease;}
-#masthead .navbar{-moz-transition: all 0.5s ease;  -o-transition: all 0.5s ease;  -webkit-transition: all 0.5s ease;  transition: all 0.5s ease;}
+#masthead .header-top{-moz-transition: all 1.2s ease;  -o-transition: all 1.2s ease;  -webkit-transition: all 1.2s ease;  transition: all 1.2s ease;}
+#masthead .header-bg{-moz-transition: all 1.2s ease;  -o-transition: all 1.2s ease;  -webkit-transition: all 1.2s ease;  transition: all 1.2s ease;}
+#masthead .navbar{-moz-transition: all 1.2s ease;  -o-transition: all 1.2s ease;  -webkit-transition: all 1.2s ease;  transition: all 1.2s ease;}
 
 /**
 * Стили для поисковика главной страницы не мобильной версии

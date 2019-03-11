@@ -26,9 +26,6 @@
 	}elseif($_SERVER['REQUEST_URI'] == '/'){
 ?>
 	    <script>
-            /**
-             * ajax обновление главной страницы
-             */
             jQuery(document).ready(function(){
                 var perem = setTimeout(function () {
                     document.location.href = window.location.href;

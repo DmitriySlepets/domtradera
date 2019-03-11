@@ -27,25 +27,11 @@
     <?php }else{ ?>
         <meta property="og:image" content="http://domtradera.ru/wp-content/uploads/2018/09/cropped-logo_main.png">
     <?php } ?>
-    <script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>
+    <!--<script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>-->
     <script>
-
-        //current tab id
-        window.onfocus = function(){
-            jQuery(document).ready(function(){
-                var perem = setTimeout(function () {
-                    document.location.href = window.location.href;
-                },3000);
-                $("#auto_update").html(perem);
-            });
-        }
         jQuery(document).ready(function () {
             windowSizeMain();
             windowSizePI();
-            /*jQuery(window).resize(function() {
-                windowSizeMain();
-                windowSizePI();
-            });*/
         });
         function windowSizeMain(){
             if (jQuery(window).width() <= '992'){
