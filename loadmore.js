@@ -1,26 +1,27 @@
 jQuery(function($){
-    $('#true_loadmore').click(function(){
-        $('#primary #main article').hide();
-        $('.yandex_list').remove();
-        $(this).text('Загружаю...'); // изменяем текст кнопки, вы также можете добавить прелоадер
+    $(window).scroll(function(){
+        var bottomOffset = 2000; // отступ от нижней границы сайта, до которого должен доскроллить пользователь, чтобы подгрузились новые посты
         var data = {
             'action': 'loadmore',
             'query': true_posts,
             'page' : current_page
         };
-        $.ajax({
-            url:ajaxurl, // обработчик
-            data:data, // данные
-            type:'POST', // тип запроса
-            success:function(data){
-                if( data ) {
-                    $('#true_loadmore').text('Загрузить ещё').before(data); // вставляем новые посты
-                    current_page++; // увеличиваем номер страницы на единицу
-                    if (current_page == max_pages) $("#true_loadmore").remove(); // если последняя страница, удаляем кнопку
-                } else {
-                    $('#true_loadmore').remove(); // если мы дошли до последней страницы постов, скроем кнопку
+        if( $(document).scrollTop() > ($(document).height() - bottomOffset) && !$('body').hasClass('loading')){
+            $.ajax({
+                url:ajaxurl,
+                data:data,
+                type:'POST',
+                beforeSend: function( xhr){
+                    $('body').addClass('loading');
+                },
+                success:function(data){
+                    if( data ) {
+                        $('#true_loadmore').before(data);
+                        $('body').removeClass('loading');
+                        current_page++;
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 });
