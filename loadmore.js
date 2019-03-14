@@ -1,11 +1,10 @@
 jQuery(function($){
     $('#true_loadmore').click(function(){
-                $('html, body').animate({
-                  scrollTop:
-                       $(window).scrollTop()
-               });
-      /*  $('#primary #main article').hide();
-        $('.yandex_list').remove();*/
+        parameters = {
+            duration: 3000
+        };
+        $('#primary #main article').hide(parameters);
+        $('.yandex_list').remove();
         $(this).text('Загружаю...'); // изменяем текст кнопки, вы также можете добавить прелоадер
         var data = {
             'action': 'loadmore',
@@ -20,10 +19,13 @@ jQuery(function($){
                 if( data ) {
                     $('#true_loadmore').text('Загрузить ещё').before(data); // вставляем новые посты
                     current_page++; // увеличиваем номер страницы на единицу
+                    $('html').scrollTop(100);
                     if (current_page == max_pages) $("#true_loadmore").remove(); // если последняя страница, удаляем кнопку
                 } else {
                     $('#true_loadmore').remove(); // если мы дошли до последней страницы постов, скроем кнопку
                 }
+
+
             }
         });
     });
