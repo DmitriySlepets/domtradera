@@ -19,7 +19,7 @@
 	<meta name="keywords" content="<?php echo getKeywords(); ?>" />
 	<?php wp_head(); ?>
 	<script type="text/javascript" async src="https://scripts.witstroom.com/check/238"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <meta name="yandex-verification" content="2669e8c2cd6a4531" />
 	<meta name="yandex-verification" content="f99435f4173340a1" />
     <?php if($_SERVER['REQUEST_URI'] != '/' && strpos($_SERVER['REQUEST_URI'],'page')==false){?>
@@ -27,7 +27,9 @@
     <?php }else{ ?>
         <meta property="og:image" content="http://domtradera.ru/wp-content/uploads/2018/09/cropped-logo_main.png">
     <?php } ?>
-    <script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>
+    <link rel="stylesheet" type="text/css" href="/wp-content/themes/newspaperly/style.css" />
+    <!--<script src="//wp-content/themes/newspaperly/js/common.new.v18.js"></script>
+    <script src="/wp-content/themes/newspaperly/js/jQuery.flowtype.js"></script>-->
     <script>
         //current tab id
         window.onfocus = function(){
@@ -61,7 +63,8 @@
 
 <body <?php body_class(); ?>>
 	 <div id="lenta" style="display: none">2</div>
-    <?php //getStyleForDevice(); ?>
+    <?php
+     ////getStyleForDevice(); ?>
 	<div id="page" class="site">
 		<header id="masthead" class="sheader site-header clearfix">
 			<div class="content-wrap">
@@ -70,7 +73,7 @@
 				<div class="header-bg">
                     <div class="site-branding branding-logo">
                         <div style="float: left;margin-right: 10px;"><?php the_custom_logo(); ?></div>
-                        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                        <h1 class="site-title"><a class="slabtext" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                         <?php
                         $description = esc_html( get_bloginfo( 'description', 'display' ) );
                         if ( $description || is_customize_preview() ) : ?>

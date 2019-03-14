@@ -580,6 +580,7 @@ function newspaperly_posted_on_return() {
 }
 //формируем шапку на мобильном устройстве
 function getMobileHeader(){
+   isset($_COOKIE['desktop']);
     $html = "";
     $html = $html . '<div id="header_main_mobile">';
     $html = $html . '<div id="menu_main_btn"></div>';
@@ -1203,3 +1204,10 @@ function true_load_posts(){
 }
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
+
+function SetCookies(){
+    if ( $this -> IsMobileVersion() ) return null;
+    if ( empty($_SERVER['HTTP_REFERER']) || substr( parse_url( $_SERVER['HTTP_REFERER'] , PHP_URL_HOST) , 0 , 2 ) != 'm.' ) return null;
+    setcookie( 'desktop' , 1, time() + 1800 );
+    $_COOKIE['desktop'] = 1;
+}
