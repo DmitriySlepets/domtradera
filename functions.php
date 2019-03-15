@@ -879,9 +879,9 @@ function getPageBrokers(){
 //вызов в /wp-includes/post-template.php
 function addMarketInContent($in_content){
     $html = "";
-    if(strlen($in_content)>5000){
-        $other_html = substr($in_content,5000);
-        $html .= substr($in_content,0, 5000);
+    if(strlen($in_content)>1000){
+        $other_html = substr($in_content,1000);
+        $html .= substr($in_content,0, 1000);
         $ar_content = explode("</p>", $other_html);
         for($i=0;$i<count($ar_content);$i++){
             if($i==4){
