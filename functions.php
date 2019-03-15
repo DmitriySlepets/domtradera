@@ -580,7 +580,7 @@ function newspaperly_posted_on_return() {
 }
 //формируем шапку на мобильном устройстве
 function getMobileHeader(){
-   isset($_COOKIE['desktop']);
+    isset($_COOKIE['desktop']);
     $html = "";
     $html = $html . '<div id="header_main_mobile">';
     $html = $html . '<div id="menu_main_btn"></div>';
@@ -655,6 +655,7 @@ function get_Social(){
 }
 //подключаем основное меню
 function getMainMenu(){
+
     $html = '';
     $html = $html . '<nav class="navbar">';
     $html = $html . '<div class="navbar-main">';
@@ -886,26 +887,26 @@ function addMarketInContent($in_content){
             if($i==4){
                 $html .= '
             <div id="single_yandex1">
-                <!-- Yandex.RTB R-A-291518-4 -->
-                <div id="yandex_rtb_R-A-291518-4"></div>
-                <script type="text/javascript">
-                    (function(w, d, n, s, t) {
-                        w[n] = w[n] || [];
-                        w[n].push(function() {
-                            Ya.Context.AdvManager.render({
-                                blockId: "R-A-291518-4",
-                                renderTo: "yandex_rtb_R-A-291518-4",
-                                async: true
-                            });
-                        });
-                        t = d.getElementsByTagName("script")[0];
-                        s = d.createElement("script");
-                        s.type = "text/javascript";
-                        s.src = "//an.yandex.ru/system/context.js";
-                        s.async = true;
-                        t.parentNode.insertBefore(s, t);
-                    })(this, this.document, "yandexContextAsyncCallbacks");
-                </script>
+               <!-- Yandex.RTB R-A-291518-17 -->
+<div id="yandex_rtb_R-A-291518-17"></div>
+<script type="text/javascript">
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-291518-17",
+                renderTo: "yandex_rtb_R-A-291518-17",
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
+</script>
             </div>
             ';
             }elseif($i==8){
@@ -1205,9 +1206,3 @@ function true_load_posts(){
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 
-function SetCookies(){
-    if ( $this -> IsMobileVersion() ) return null;
-    if ( empty($_SERVER['HTTP_REFERER']) || substr( parse_url( $_SERVER['HTTP_REFERER'] , PHP_URL_HOST) , 0 , 2 ) != 'm.' ) return null;
-    setcookie( 'desktop' , 1, time() + 1800 );
-    $_COOKIE['desktop'] = 1;
-}
