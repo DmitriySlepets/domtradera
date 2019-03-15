@@ -492,9 +492,9 @@ a:hover {
 }
 
 
-/* 
+/*
 - - - - -
-Navigation 
+Navigation
 - - - - -
 */
 
@@ -633,9 +633,9 @@ Navigation
 }
 
 
-/* 
+/*
 - - - - -
-Comments 
+Comments
 - - - - -
 */
 
@@ -971,9 +971,9 @@ object {
 }
 
 
-/* 
+/*
 - - - - -
-Header 
+Header
 - - - - -
 */
 
@@ -1369,9 +1369,9 @@ Header
 }
 
 
-/* 
+/*
 - - - - -
-Content 
+Content
 - - - - -
 */
 
@@ -1617,9 +1617,9 @@ Content
 
 
 
-/* 
+/*
 - - - - -
-Widgets 
+Widgets
 - - - - -
 */
 
@@ -2990,7 +2990,7 @@ article .entry-content{font-family: Merriweather !important;}
 .borderdown { border-bottom: solid 1px #dadada;}
 .pd10 { padding-bottom: 10px;}
 .pu10 { padding-top: 10px;}
-.article-share-name { font: bold 36px/1 PT Sans; width: 38px;}
+.article-share-name { font: bold 36px/1 PT Sans; width: 100%;}
 .article-share-name .social-button-block { padding: 0;}
 .article-share-name .social-button-block { margin: 0; padding: 0; list-style-type: none; font-size: 14px;}
 .social-button-block .fb-share { background: url(/wp-content/themes/newspaperly/icons/top-banner/facebook.svg) no-repeat;}
@@ -3002,7 +3002,7 @@ a, a:visited, a:focus { color: inherit; text-decoration: none; border: none;}
 .social-button-block .ok-share { background: url(/wp-content/themes/newspaperly/icons/top-banner/ok.svg) no-repeat;}
 .social-button-block .twi-share { background: url(/wp-content/themes/newspaperly/icons/top-banner/twitter.svg) no-repeat;}
 .share-name-sticky { display: none;position: fixed;top: 0;left: 0;z-index: 2048;width: auto;border-bottom: solid 1px #dadada;background-color: #fafafa;padding-top: 10px;padding-bottom: 10px;}
-.article-share-name { font: bold 18px/1 PT Sans; width: 400px;}
+.article-share-name { font: bold 18px/1 PT Sans; width: 300px;}
 .article-share-name .social-button-block { padding: 0;}
 .article-share-name .social-button-block { margin: 0; padding: 0; list-style-type: none; font-size: 14px;}
 .social-button-block .fb-share { background: url(/wp-content/themes/newspaperly/icons/top-banner/facebook.svg) no-repeat;}
